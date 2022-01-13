@@ -29,6 +29,58 @@ async function cakLontong(req, res) {
     });
 }
 
+async function tebaklirik(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/tebaklirik.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            question: result.question, 
+            jawaban: result.answer
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function tebakjenaka(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/tebakjenaka.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            soal: result.pertanyaan, 
+            jawaban: result.jawaban
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
 async function quotes(req, res) {
     const apikey = req.query.apikey;
     if (apikey === undefined) return res.status(404).send({
