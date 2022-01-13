@@ -436,10 +436,7 @@ async function dare(req, res) {
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
     readFileTxt('./lib/data/dare.txt').then(result => {
         limitAdd(apikey);
-        res.status(200).send({
-            status: 200, 
-            result: result
-        });
+        res.status(200).send({status: 200, result: result});
     }).catch(error => {
         console.log(error);
         res.status(500).send({status: 500, message: 'Internal Server Error'});
@@ -459,7 +456,7 @@ async function truth(req, res) {
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-    readFileTxt('./lib/data/dare.txt').then(result => {
+    readFileTxt('./lib/data/truth.txt').then(result => {
         limitAdd(apikey);
         res.status(200).send({status: 200, result: result});
     }).catch(error => {
