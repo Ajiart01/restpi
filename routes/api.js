@@ -5,7 +5,7 @@ const { mp4, Mp3 } = require('../lib/youtube');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera } = require('../controllers/randomtext');
-const { photoOxy, blackpink } = require('../controllers/oxy');
+const { photoOxy } = require('../controllers/oxy');
 const { tgContr } = require('../controllers/tebakgambar');
 const { mDo } = require('../controllers/media');
 const { tIk } = require('../controllers/tik');
@@ -68,8 +68,6 @@ router.get('/asupan/tiktok', tiktok);
 router.get('/cecan/china', china);
 
 router.get('/naruto', naruto);
-
-router.get('/textpro/blackpink', blackpink);
 
 router.get('/asupan/gheayubi', geayubi);
 
