@@ -110,24 +110,6 @@ const check = await cekKey(apikey);
 })
 });
 // akhir pinterest
-// tiktok
-router.get('/tiktok', async (req, res) => {
-    const link = req.query.url;
-    const apikey = req.query.apikey;
-    if (apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter apikey`
-    });
-const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-    hx.ttdownloader(link)
-    .then(result => {
-    res.json(result)
-})
-});
 
 router.get('/tiktok', tIk);
 
