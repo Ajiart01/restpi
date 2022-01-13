@@ -1,10 +1,4 @@
 const express = require('express');
-const router = express.Router();
-const { readFileTxt, readFileJson } = require('../lib/function');
-const { mp4, Mp3 } = require('../lib/youtube');
-const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
-const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
-const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil } = require('../controllers/randomtext');
 const hx = require('hxz-api');
 const fs = require('fs-extra');
 const util = require('minecraft-server-util');
@@ -12,6 +6,13 @@ const options = {
     timeout: 1000 * 5,
     enableSRV: true // SRV record lookup
 };
+
+const router = express.Router();
+const { readFileTxt, readFileJson } = require('../lib/function');
+const { mp4, Mp3 } = require('../lib/youtube');
+const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
+const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
+const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil } = require('../controllers/randomtext');
 const { photoOxy } = require('../controllers/oxy');
 const { tgContr } = require('../controllers/tebakgambar');
 const { mDo } = require('../controllers/media');
