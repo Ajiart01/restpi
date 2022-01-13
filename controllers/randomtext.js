@@ -459,7 +459,7 @@ async function truth(req, res) {
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-    readFileTxt('./lib/data/truth.txt').then(result => {
+    readFileTxt('./lib/data/dare.txt').then(result => {
         limitAdd(apikey);
         res.status(200).send({status: 200, result: result});
     }).catch(error => {
