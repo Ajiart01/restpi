@@ -77,7 +77,7 @@ router.get('/asupan/bocil', bocil);
 
 router.get('/asupan/rikagusriani', rikagusriani);
 
-router.get('./asupan/asupan', asupan);
+router.get('/asupan/asupan', asupan);
 
 router.get('/asupan/ukhty', ukhty);
 
