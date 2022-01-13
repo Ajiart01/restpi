@@ -46,8 +46,8 @@ async function tebaklirik(req, res) {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
-            question: result.question, 
-            jawaban: result.answer
+            question: result.result.question, 
+            jawaban: result.result.answer
         });
     }).catch(error => {
         console.log(error);
@@ -72,8 +72,8 @@ async function tebakjenaka(req, res) {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
-            soal: result.pertanyaan, 
-            jawaban: result.jawaban
+            soal: result.result.pertanyaan, 
+            jawaban: result.result.jawaban
         });
     }).catch(error => {
         console.log(error);
@@ -98,8 +98,8 @@ async function tebakbendera(req, res) {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
-            bendera: result.bendera, 
-            Nama: result.nama
+            bendera: result.result.bendera, 
+            Nama: result.result.nama
         });
     }).catch(error => {
         console.log(error);
@@ -124,9 +124,9 @@ async function tebakchara(req, res) {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
-            name: result.name, 
-            image: result.image,
-            desc: result.desc
+            name: result.result.name, 
+            image: result.result.image,
+            desc: result.result.desc
         });
     }).catch(error => {
         console.log(error);
