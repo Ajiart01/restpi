@@ -1054,4 +1054,4 @@ limitAdd(apikey);
         res.status(500).send({status: 500, message: 'Internal Server Error'});
     });
 }
-module.exports = {cakLontong, quotes, bijak, fakta, ptl, motivasi, naruto, indonesia, vietnam, thailand, malaysia, korea, japan, china, tiktok, asupan, geayubi, santuy, bocil, rikagusriani, harley, cecan, ukhty, anony, hijaber, joker, tebakchara, tebakjenaka, tebaklirik, tebakbendera, ppcouple };
+module.exports = {cakLontong, quotes, bijak, fakta, ptl, motivasi, naruto, indonesia, vietnam, thailand, malaysia, korea, japan, china, tiktok, asupan, geayubi, santuy, bocil, rikagusriani, harley, cecan, ukhty, anony, hijaber, joker, tebakchara, tebakjenaka, tebaklirik, tebakbendera, ppcouple, tebaktebakan, tebakkalimat, tebakkimia, tebakkata, tekateki, truth, dare, susunkata, asahotak, tebakkabupaten, family100, dadu };
