@@ -1,7 +1,7 @@
 const { limitAdd, isLimit, cekKey } = require("../database/db");
 const { download_Url } = require("../lib/function");
 const { oxy, slidePhotooxy } = require("../lib/photooxy");
-const { blackpink } require("../controllers/textpro");
+const { blackpink } = require("../controllers/textpro");
 const path = require('path');
 
 async function photoOxy(req, res) {
