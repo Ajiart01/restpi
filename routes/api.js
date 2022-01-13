@@ -1,12 +1,4 @@
 const express = require('express');
-const hx = require('hxz-api');
-const fs = require('fs-extra');
-const util = require('minecraft-server-util');
-const options = {
-    timeout: 1000 * 5,
-    enableSRV: true // SRV record lookup
-};
-
 const router = express.Router();
 const { readFileTxt, readFileJson } = require('../lib/function');
 const { mp4, Mp3 } = require('../lib/youtube');
@@ -32,85 +24,6 @@ router.get('/checkkey', async (req, res) => {
     const limit = await checkLimit(apikey);
     res.send({status: 200, apikey: apikey, limit: limit});
 });
-
-router.get('/minecraft', async (req, res) => {
-    const apik = req.query.ipaddress;
-    const apikey = req.query.apikey;
-    if (apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-    util.status(apik, 25565, options)
-    .then((result) =>
-    res.json(result
-))
-});
-// akhir minecraft
-// lirik
-router.get('/lirik', async (req, res) => {
-    const judul = req.query.search;
-    const apikey = req.query.apikey;
-    if (apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter apikey`
-    });
-const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-
-hx.lirik(judul)
-    .then(result => {
-     res.json(result)
-})
-});
-// akhir lirik
-// igstalk
-router.get('/igstalk', async (req, res) => {
-    const username = req.query.username;
-    const apikey = req.query.apikey;
-    if (apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter apikey`
-    });
-const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-
-hx.igstalk(username)
-    .then(result => {
-    res.json(result)
-})
-});
-//akhir igstalk
-// pinterest
-router.get('/pinterest', async (req, res) => {
-    const judul = req.query.query;
-    const apikey = req.query.apikey;
-    if (apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter apikey`
-    });
-const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-
-    hx.pinterest(judul)
-    .then(result => {
-     res.json(result)
-})
-});
-// akhir pinterest
 
 router.get('/tiktok', tIk);
 
