@@ -103,29 +103,29 @@ router.get('/game/tebakchara', tebakchara);
 
 router.get('/game/tebakjenaka', tebakjenaka);
 
-router.get('/game/tekateki', tebakjenaka);
+router.get('/game/tekateki', tekateki);
 
-router.get('/game/asahotak', tebakjenaka);
+router.get('/game/asahotak', asahotak);
 
-router.get('/game/susunkata', tebakjenaka);
+router.get('/game/susunkata', susunkata);
 
-router.get('/game/family100', tebakjenaka);
+router.get('/game/family100', family100);
 
-router.get('/game/dadu', tebakjenaka);
+router.get('/game/dadu', dadu);
 
-router.get('/game/dare', tebakjenaka);
+router.get('/game/dare', dare);
 
-router.get('/game/truth', tebakjenaka);
+router.get('/game/truth', truth);
 
-router.get('/game/tebaktebakan', tebakjenaka);
+router.get('/game/tebaktebakan', tebaktebakan);
 
-router.get('/game/tebakkabupaten', tebakjenaka);
+router.get('/game/tebakkabupaten', tebakkabupaten);
 
-router.get('/game/tebakkalimat', tebakjenaka);
+router.get('/game/tebakkalimat', tebakkalimat);
 
-router.get('/game/tebakkata', tebakjenaka);
+router.get('/game/tebakkata', tebakkata);
 
-router.get('/game/tebakkimia', tebakjenaka);
+router.get('/game/tebakkimia', tebakkimia);
 
 router.get('/ppcouple', ppcouple);
 
