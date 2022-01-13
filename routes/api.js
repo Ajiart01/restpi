@@ -102,29 +102,6 @@ router.get('/game/tebaklirik', tebaklirik);
 router.get('/game/tebakchara', tebakchara);
 
 router.get('/game/tebakjenaka', tebakjenaka);
-router.get('/game/tekateki', tekateki);
-
-router.get('/game/asahotak', asahotak);
-
-router.get('/game/susunkata', susunkata);
-
-router.get('/game/family100', family100);
-
-router.get('/game/dadu', dadu);
-
-router.get('/game/dare', dare);
-
-router.get('/game/truth', truth);
-
-router.get('/game/tebaktebakan', tebaktebakan);
-
-router.get('/game/tebakkabupaten', tebakkabupaten);
-
-router.get('/game/tebakkalimat', tebakkalimat);
-
-router.get('/game/tebakkata', tebakkata);
-
-router.get('/game/tebakkimia', tebakkimia);
 
 router.get('/ppcouple', ppcouple);
 
