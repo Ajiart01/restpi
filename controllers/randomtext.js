@@ -81,6 +81,85 @@ async function tebakjenaka(req, res) {
     });
 }
 
+async function tebakbendera(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/tebakbendera.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            bendera: result.bendera, 
+            Nama: result.nama
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function tebakchara(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/tebakchara.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            name: result.name, 
+            image: result.image,
+            desc: result.desc
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function ppcouple(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/ppcouple.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            male: result.male, 
+            female: result.female
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
 async function quotes(req, res) {
     const apikey = req.query.apikey;
     if (apikey === undefined) return res.status(404).send({
@@ -667,4 +746,4 @@ limitAdd(apikey);
         res.status(500).send({status: 500, message: 'Internal Server Error'});
     });
 }
-module.exports = {cakLontong, quotes, bijak, fakta, ptl, motivasi, naruto, indonesia, vietnam, thailand, malaysia, korea, japan, china, tiktok, asupan, geayubi, santuy, bocil, rikagusriani, harley, cecan, ukhty, anony, hijaber, joker };
+module.exports = {cakLontong, quotes, bijak, fakta, ptl, motivasi, naruto, indonesia, vietnam, thailand, malaysia, korea, japan, china, tiktok, asupan, geayubi, santuy, bocil, rikagusriani, harley, cecan, ukhty, anony, hijaber, joker, tebakchara, tebakjenaka, tebaklirik, tebakbendera, ppcouple };
