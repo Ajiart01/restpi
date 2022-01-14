@@ -6,8 +6,6 @@ const { cekKey, checkLimit, resetLimit } = require('../database/db');
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata, tebakkalimat, susunkata, tekateki, dadu, asahotak, truth, dare, tebaktebakan, family100 } = require('../controllers/randomtext');
 const { pinterest } = require('../scraper/index');
-const { musicaldown } = require('../scraper/musicaldown')
-const { tiktok } = require('../scraper/index')
 const { igStory, igStalk } = require('../scraper/igdl')
 const { photoOxy } = require('../controllers/oxy');
 const { tgContr } = require('../controllers/tebakgambar');
@@ -75,53 +73,6 @@ router.get('/igstalk', async (req, res) => {
     });
     const result = await igStalk(username);
     res.send({status: 200, result: result});
-});
-
-router.get('/tiktok2', async(req, res) => {
-	const link = req.query.link;
-	const apikey = req.query.apikey;
-	   if (link === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-	var hasil = await tiktok(link)
-	res.send({status: 200, result: hasil});
-});
-router.get('/tiktoknowm', async(req, res) => {
-	const link = req.query.link;
-	const apikey = req.query.apikey;
-	   if (link === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-	var hasil = await musicaldown(link)
-	res.send({status: 200, result: hasil});
-});
-
-router.get('/tiktokaudio', async(req, res) => {
-	const link = req.query.link;
-	const apikey = req.query.apikey;
-	   if (link === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-	var hasil = await musicaldown(link)
-	res.send({status: 200, result: hasil});
 });
 
 
