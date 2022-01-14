@@ -4,7 +4,7 @@ const { readFileTxt, readFileJson } = require('../lib/function');
 const { mp4, Mp3 } = require('../lib/youtube');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
-const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera } = require('../controllers/randomtext');
+const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata } = require('../controllers/randomtext');
 const { photoOxy } = require('../controllers/oxy');
 const { tgContr } = require('../controllers/tebakgambar');
 const { mDo } = require('../controllers/media');
@@ -102,6 +102,12 @@ router.get('/game/tebaklirik', tebaklirik);
 router.get('/game/tebakchara', tebakchara);
 
 router.get('/game/tebakjenaka', tebakjenaka);
+
+router.get('/game/tebakkabupaten', tebakkabupaten);
+
+router.get('/game/tebakkata', tebakkata);
+
+router.get('/game/tebakkimia', tebakkimia);
 
 router.get('/ppcouple', ppcouple);
 
