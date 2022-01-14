@@ -1,30 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { spawn, exec } = require('child_process');
-const axios = require('axios');
-const fetch = require('node-fetch');
-const { download } = require('fetch-video');
-var PastebinAPI = require('pastebin-js');
-const google = require('google-it');
-const Kitsu = require('kitsu.js');
-const kitsu = new Kitsu();
-const cheerio = require('cheerio');
-const fbdl = require('fbdl-core');
-const TinyURL = require('tinyurl');
-const Genius = new (require("genius-lyrics")).Client('YOUR_ACCESS_TOKEN'); // Login/Sign Up in https://genius.com/api-clients# , Copy And Paste Your Access Token
-const QRCode = require('qrcode');
-const summarizer = require('text-summarisation');
-const ytdl = require('ytdl-core');
-const speed = require('performance-now');
-_ = require('lodash');
-__path = process.cwd();
-var fs = require('fs'),
-    request = require('request');
 const { readFileTxt, readFileJson } = require('../lib/function');
 const { mp4, Mp3 } = require('../lib/youtube');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata, tebakkalimat, susunkata, tekateki, dadu, asahotak, truth, dare, tebaktebakan, family100 } = require('../controllers/randomtext');
+const { pinterest } = require('../scraper/index');
 const { photoOxy } = require('../controllers/oxy');
 const { tgContr } = require('../controllers/tebakgambar');
 const { mDo } = require('../controllers/media');
@@ -43,6 +24,22 @@ router.get('/checkkey', async (req, res) => {
     });
     const limit = await checkLimit(apikey);
     res.send({status: 200, apikey: apikey, limit: limit});
+});
+
+router.get('/checkkey', async (req, res) => {
+    const query = req.query.query;
+    const apikey = req.query.apikey;
+   if (query === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter query & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    const result = await pinterest(query);
+    res.send({status: 200, result: result});
 });
 
 router.get('/tiktok', tIk);
