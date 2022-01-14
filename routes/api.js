@@ -6,6 +6,15 @@ const { cekKey, checkLimit, resetLimit } = require('../database/db');
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata, tebakkalimat, susunkata, tekateki, dadu, asahotak, truth, dare, tebaktebakan, family100 } = require('../controllers/randomtext');
 const { pinterest } = require('../scraper/index');
+const { tiktok, mediafireDl, pinterestdl, scdl, sfiledl, savetik } = require('../scraper/index') 
+const { musicaldown } = require('../scraper/musicaldown')
+const { stickerDl } = require('../scraper/stickerpack')
+const { dl } = require('../scraper/aiovideodl')
+const { spotifydl } = require('../scraper/spotify')
+const { jooxdl, joox } = require('../scraper/joox')
+const { pixivDownload } = require('../scraper/pixiv')
+const { igStory, igStalk, igDownload } = require('../scraper/igdl')
+const zipi = require('../scraper/zippy')
 const { photoOxy } = require('../controllers/oxy');
 const { tgContr } = require('../controllers/tebakgambar');
 const { mDo } = require('../controllers/media');
@@ -39,6 +48,38 @@ router.get('/pinterest', async (req, res) => {
         message: `apikey ${apikey} not found, please register first!`
     });
     const result = await pinterest(query);
+    res.send({status: 200, result: result});
+});
+
+router.get('/igstory', async (req, res) => {
+    const username = req.query.username;
+    const apikey = req.query.apikey;
+   if (query === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter username & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    result = await igStory(username);
+    res.send({status: 200, result: result});
+});
+
+router.get('/igstalk', async (req, res) => {
+    const username = req.query.username;
+    const apikey = req.query.apikey;
+   if (query === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    const result = await igStalk(username);
     res.send({status: 200, result: result});
 });
 
