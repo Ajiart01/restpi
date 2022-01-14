@@ -1,6 +1,5 @@
 const { ytPlay, ytMp3, ytMp4 } = require("../lib/youtube");
 const { igdl, twitter } = require("../lib/scrapt");
-const { pinterest, wallpaper } = require("../scraper/index");
 const { cekKey, limitAdd, isLimit } = require('../database/db');
 
 async function youtubePlay(req, res) {
@@ -142,32 +141,4 @@ limitAdd(apikey);
     });
 }
 
-async function pinterest(req, res) {
-    const query = req.query.query;
-    const apikey = req.query.apikey;
-    if (url === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter url & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-let limit = await isLimit(apikey);
-    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
- const result = await pinterest(query);
-limitAdd(apikey);
-res.status(200).send({
-            status: 200, 
-            result: result
-        }).catch(error => {
-        console.log(error);
-        res.status(500).send({
-            status: 500,
-            message: 'Internal Server Error'
-        })
-    });
-}
-
-module.exports = { youtubePlay, youtubeMp3, youtubeMp4, igdownloader, twitterdownloader, pinterest };
+module.exports = { youtubePlay, youtubeMp3, youtubeMp4, igdownloader, twitterdownloader };
