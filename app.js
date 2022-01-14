@@ -1,11 +1,11 @@
 const axios = require("axios")
 const cheerio = require("cheerio")
 const express = require('express');
-const secure = require('ssl-express-www');
-const morgan = require('morgan');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
+const secure = require('ssl-express-www')
+const morgan = require('morgan')
+const multer = require('multer')
+const path = require('path')
+const fs = require('fs')
 var app = express();
 app.use(secure)
 app.use(morgan('dev'));
