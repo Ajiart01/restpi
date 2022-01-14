@@ -103,6 +103,8 @@ router.get('/game/tebakchara', tebakchara);
 
 router.get('/game/tebakjenaka', tebakjenaka);
 
+router.get('/game/tekateki', tekateki)
+
 router.get('/game/tebakkabupaten', tebakkabupaten);
 
 router.get('/game/tebakkata', tebakkata);
