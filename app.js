@@ -1,6 +1,6 @@
 const axios = require("axios")
 const cheerio = require("cheerio")
-const express = require('express');
+const express = require('express')
 const secure = require('ssl-express-www')
 const morgan = require('morgan')
 const multer = require('multer')
@@ -130,20 +130,20 @@ app.get('/price', (req, res) => {
   })
 })
 
-app.use('/api', apiRouters);
-app.use('/users', userRouters);
-app.use('/premium', premiumRouters);
-app.use('/downloader', downloader);
-app.use('/search', search);
-app.use('/anime', anime);
-app.use('/randomimg', randomimg);
-app.use('/nsfw', nsfw);
-app.use('/photooxy', photooxy);
-app.use('/otakudesu', otakudesu);
-app.use('/games', games);
-app.use('/primbon', primbon);
-app.use('/converter', convert);
-app.use('/other', other);
+app.use('/api', apiRouters)
+app.use('/users', userRouters)
+app.use('/premium', premiumRouters)
+app.use('/downloader', downloader)
+app.use('/search', search)
+app.use('/anime', anime)
+app.use('/randomimg', randomimg)
+app.use('/nsfw', nsfw)
+app.use('/photooxy', photooxy)
+app.use('/otakudesu', otakudesu)
+app.use('/games', games)
+app.use('/primbon', primbon)
+app.use('/converter', convert)
+app.use('/other', other)
 
 app.set('json spaces', 4);
 
