@@ -1,8 +1,5 @@
 const express = require('express');
 const router = express.Router();
-__path = process.cwd();
-const fs = require('fs');
-const { getBuffer } = require('../lib/function')
 const { readFileTxt, readFileJson } = require('../lib/function');
 const { mp4, Mp3 } = require('../lib/youtube');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
@@ -95,7 +92,7 @@ router.get('/pindl', async(req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await pinterestdl(link)
+	var hasil = await pinterestdl(link)
 	try {
 		res.json(hasil)
 	} catch(err) {
@@ -115,7 +112,7 @@ apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await scdl(link)
+	var hasil = await scdl(link)
 	try {
 		res.json(hasil)
 	} catch(err) {
@@ -135,7 +132,7 @@ apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await spotifydl.downloadTrack(link)
+	var hasil = await spotifydl.downloadTrack(link)
 	try {
 		await fs.writeFileSync(__path +'/tmp/audio.mp3', hasil)
    		await res.sendFile(__path +'/tmp/audio.mp3')
@@ -156,7 +153,7 @@ apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await spotifydl.getTrack(link)
+	var hasil = await spotifydl.getTrack(link)
 	try {
 		res.json({ info: hasil, dl_lnk: `https://tyz-api.herokuapp.com/downloader/spotifydl?link=${link}` })
 	} catch(err) {
@@ -176,7 +173,7 @@ apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await stickerDl(link)
+	var hasil = await stickerDl(link)
 	try {
 		res.json(hasil)
 	} catch(err) {
@@ -198,7 +195,7 @@ apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await sfiledl(link)
+	var hasil = await sfiledl(link)
 	try {
 		res.json(hasil)
 	} catch(err) {
@@ -220,7 +217,7 @@ router.get('/pixiv', async(req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await pixivDownload(id, ext)
+	var hasil = await pixivDownload(id, ext)
 	try {
 		var data = await getBuffer(hasil)
 		await fs.writeFileSync(__path +'/tmp/image.jpg', data)
@@ -242,7 +239,7 @@ apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await dl(link)
+	var hasil = await dl(link)
 	try {
 		res.json(hasil)
 	} catch(err) {
@@ -262,7 +259,7 @@ router.get('/likeedl', async(req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await dl(link)
+	var hasil = await dl(link)
 	try {
 		res.json(hasil)
 	} catch(err) {
