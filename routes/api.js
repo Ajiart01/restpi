@@ -46,7 +46,7 @@ router.get('/pinterest', async (req, res) => {
 router.get('/igstory', async (req, res) => {
     const username = req.query.username;
     const apikey = req.query.apikey;
-   if (query === undefined || apikey === undefined) return res.status(404).send({
+   if (username === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter username & apikey`
     });
@@ -62,7 +62,7 @@ router.get('/igstory', async (req, res) => {
 router.get('/igstalk', async (req, res) => {
     const username = req.query.username;
     const apikey = req.query.apikey;
-   if (query === undefined || apikey === undefined) return res.status(404).send({
+   if (username === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
     });
