@@ -7,9 +7,11 @@ const { readFileTxt, readFileJson } = require('../lib/function');
 const { mp4, Mp3 } = require('../lib/youtube');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
+const zipi = require('../scraper/zippy');
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata, tebakkalimat, susunkata, tekateki, dadu, asahotak, truth, dare, tebaktebakan, family100 } = require('../controllers/randomtext');
 const { pinterest } = require('../scraper/index');
-const { mediafireDl, pinterestdl, scdl, sfiledl } = require('../scraper/index');
+const { tiktok, mediafireDl, pinterestdl, scdl, sfiledl, savetik } = require('../scraper/index') 
+const { musicaldown } = require('../scraper/musicaldown')
 const { stickerDl } = require('../scraper/stickerpack');
 const { dl } = require('../scraper/aiovideodl');
 const { spotifydl } = require('../scraper/spotify');
@@ -51,38 +53,113 @@ router.get('/pinterest', async (req, res) => {
     res.send({status: 200, result: result});
 });
 
-router.get('/igstory', async (req, res) => {
-    const username = req.query.username;
-    const apikey = req.query.apikey;
-   if (query === undefined || apikey === undefined) return res.status(404).send({
+router.get('/tiktok2', async(req, res) => {
+	const link = req.query.link;
+  const apikey = req.query.apikey;
+	   if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
-        message: `Input Parameter username & apikey`
+        message: `Input Parameter link & apikey`
     });
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-    result = await igStory(username);
-    res.send({status: 200, result: result});
-});
-
-router.get('/igstalk', async (req, res) => {
-    const username = req.query.username;
-    const apikey = req.query.apikey;
-   if (query === undefined || apikey === undefined) return res.status(404).send({
+	const result = await tiktok(link)
+	try {
+		res.json(result)
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
+})
+router.get('/tiktoknowm', async(req, res) => {
+	const link = req.query.link;
+	const apikey = req.query.apikey;
+   if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
-        message: `Input Parameter username & apikey`
+        message: `Input Parameter link & apikey`
     });
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-    const result = await igStalk(username);
-    res.send({status: 200, result: result});
-});
+	const result = await musicaldown(link)
+	try {
+		var data = await getBuffer(result.nowm)
+		await fs.writeFileSync(__path +'/tmp/tiktok.mp4', data)
+   		await res.sendFile(__path +'/tmp/tiktok.mp4')
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
+})
 
+router.get('/tiktokaudio', async(req, res) => {
+	var link = req.query.link;
+	const apikey = req.query.apikey;
+	   if (link === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	const result = await musicaldown(link)
+	try {
+		var data = await getBuffer(result.audio)
+		await fs.writeFileSync(__path +'/tmp/tiktok.mp4', data)
+   		await res.sendFile(__path +'/tmp/tiktok.mp4')
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
+})
+
+router.get('/igstory', async(req, res) => {
+	const username = req.query.username;
+	const apikey = req.query.apikey;
+	   if (username === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	const result = await igStory(username)
+	try {
+		res.json(result)
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
+})
+
+router.get('/igstalk', async(req, res) => {
+	const username = req.query.username;
+	const apikey = req.query.apikey;
+	   if (username === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	const result = await igStalk(username)
+	try {
+		res.json(result)
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
+})
 router.get('/pindl', async(req, res) => {
 	const link = req.query.link;
 	   const apikey = req.query.apikey;
@@ -97,7 +174,7 @@ router.get('/pindl', async(req, res) => {
     });
 	const result = await pinterestdl(link)
 	try {
-		res.json(hasil)
+		res.json(result)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
@@ -117,7 +194,7 @@ const apikey = req.query.apikey;
     });
 	const result = await scdl(link)
 	try {
-		res.json(hasil)
+		res.json(result)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
@@ -137,7 +214,7 @@ const apikey = req.query.apikey;
     });
 	const result = await spotifydl.downloadTrack(link)
 	try {
-		await fs.writeFileSync(__path +'/tmp/audio.mp3', hasil)
+		await fs.writeFileSync(__path +'/tmp/audio.mp3', result)
    		await res.sendFile(__path +'/tmp/audio.mp3')
 	} catch(err) {
 		console.log(err)
@@ -158,7 +235,84 @@ const apikey = req.query.apikey;
     });
 	const result = await spotifydl.getTrack(link)
 	try {
-		res.json({ info: hasil, dl_lnk: `https://tyz-api.herokuapp.com/downloader/spotifydl?link=${link}` })
+		res.json({ info: result, dl_lnk: `https://tyz-api.herokuapp.com/downloader/spotifydl?link=${link}` })
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
+})
+
+router.get('/zippyShare', async(req, res) => {
+	const link = req.query.link;
+	const apikey = req.query.apikey;
+	   if (link === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	const result = await zipi.zippy(link)
+	try {
+		res.json(result)
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
+})
+
+router.get('/youtube', async(req, res) => {
+
+	const link = req.query.link;
+	const apikey = req.query.apikey;
+	   if (link === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	var yt1 = await yta(link)
+	var yt2 = await ytv(link)
+	const audioUrl = await shorts('https://tyz-api.herokuapp.com/converter/toFile?url='+yt1.dl_link)
+	const videoUrl = await shorts('https://tyz-api.herokuapp.com/converter/toFile?url='+yt2.dl_link)
+	try {
+		res.json({
+			title: yt1.title,
+			thumb: yt1.thumb,
+			filesize_audio: yt1.filesizeF,
+			filesize_video: yt2.filesizeF,
+			audio: audioUrl,
+			video: videoUrl,
+		})
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
+})
+
+router.get('/play', async(req, res) => {
+	const query = req.query.query;
+	const apikey = req.query.apikey;
+	   if (query === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	let results = await yts(query)
+  	let vid = results.all.find(video => video.seconds < 3600)
+	if (!vid) return res.json({ message: 'not found!'})
+	const result = await axios.get('https://tyz-api.herokuapp.com/downloader/youtube?link='+vid.url)
+	try {
+		res.json(result.data)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
@@ -178,7 +332,7 @@ const apikey = req.query.apikey;
     });
 	const result = await stickerDl(link)
 	try {
-		res.json(hasil)
+		res.json(result)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
@@ -200,7 +354,7 @@ const apikey = req.query.apikey;
     });
 	const result = await sfiledl(link)
 	try {
-		res.json(hasil)
+		res.json(result)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
@@ -222,7 +376,7 @@ router.get('/pixiv', async(req, res) => {
     });
 	const result = await pixivDownload(id, ext)
 	try {
-		var data = await getBuffer(hasil)
+		var data = await getBuffer(result)
 		await fs.writeFileSync(__path +'/tmp/image.jpg', data)
    		await res.sendFile(__path +'/tmp/image.jpg')
 	} catch(err) {
@@ -244,7 +398,7 @@ const apikey = req.query.apikey;
     });
 	const result = await dl(link)
 	try {
-		res.json(hasil)
+		res.json(result)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
@@ -264,7 +418,7 @@ router.get('/likeedl', async(req, res) => {
     });
 	const result = await dl(link)
 	try {
-		res.json(hasil)
+		res.json(result)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
