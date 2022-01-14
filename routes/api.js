@@ -84,8 +84,8 @@ router.get('/igstalk', async (req, res) => {
 });
 
 router.get('/pindl', async(req, res) => {
-	const link = req.query.link;
-	   const apikey = req.query.apikey;
+	var link = req.query.link;
+	   apikey = req.query.apikey;
 	   if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -95,17 +95,17 @@ router.get('/pindl', async(req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await pinterestdl(link)
+	var hasil = await pinterestdl(link)
 	try {
-		res.json(result)
+		res.json(hasil)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
 	}
 })
 router.get('/scdl', async(req, res) => {
-	const link = req.query.link;
-const apikey = req.query.apikey;
+	var link = req.query.link;
+apikey = req.query.apikey;
 	   if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -115,17 +115,17 @@ const apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await scdl(link)
+	var hasil = await scdl(link)
 	try {
-		res.json(result)
+		res.json(hasil)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
 	}
 })
 router.get('/spotifydl', async(req, res) => {
-	const link = req.query.link;
-const apikey = req.query.apikey;
+	var link = req.query.link;
+apikey = req.query.apikey;
 	   if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -135,9 +135,9 @@ const apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await spotifydl.downloadTrack(link)
+	var hasil = await spotifydl.downloadTrack(link)
 	try {
-		await fs.writeFileSync(__path +'/tmp/audio.mp3', result)
+		await fs.writeFileSync(__path +'/tmp/audio.mp3', hasil)
    		await res.sendFile(__path +'/tmp/audio.mp3')
 	} catch(err) {
 		console.log(err)
@@ -145,8 +145,8 @@ const apikey = req.query.apikey;
 	}
 })
 router.get('/spotify', async(req, res) => {
-	const link = req.query.link;
-const apikey = req.query.apikey;
+	var link = req.query.link;
+apikey = req.query.apikey;
 	   if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -156,17 +156,17 @@ const apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await spotifydl.getTrack(link)
+	var hasil = await spotifydl.getTrack(link)
 	try {
-		res.json({ info: result, dl_lnk: `https://tyz-api.herokuapp.com/downloader/spotifydl?link=${link}` })
+		res.json({ info: hasil, dl_lnk: `https://tyz-api.herokuapp.com/downloader/spotifydl?link=${link}` })
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
 	}
 })
 router.get('/stickerpack', async(req, res) => {
-	const link = req.query.link;
-const apikey = req.query.apikey;
+	var link = req.query.link;
+apikey = req.query.apikey;
 	   if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -176,9 +176,9 @@ const apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await stickerDl(link)
+	var hasil = await stickerDl(link)
 	try {
-		res.json(result)
+		res.json(hasil)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
@@ -187,8 +187,8 @@ const apikey = req.query.apikey;
 
 router.get('/sfiledl', async(req, res) => {
 
-	const link = req.query.link;
-const apikey = req.query.apikey;
+	var link = req.query.link;
+apikey = req.query.apikey;
 	   if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -198,9 +198,9 @@ const apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await sfiledl(link)
+	var hasil = await sfiledl(link)
 	try {
-		res.json(result)
+		res.json(hasil)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
@@ -208,9 +208,9 @@ const apikey = req.query.apikey;
 })
 
 router.get('/pixiv', async(req, res) => {
-	const id = req.query.id,
-	const ext = req.query.ext,
-  const apikey = req.query.apikey;
+	var id = req.query.id,
+	   ext = req.query.ext,
+  apikey = req.query.apikey;
 	   if (id === undefined || ext === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter id,ext & apikey`
@@ -220,9 +220,9 @@ router.get('/pixiv', async(req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await pixivDownload(id, ext)
+	var hasil = await pixivDownload(id, ext)
 	try {
-		var data = await getBuffer(result)
+		var data = await getBuffer(hasil)
 		await fs.writeFileSync(__path +'/tmp/image.jpg', data)
    		await res.sendFile(__path +'/tmp/image.jpg')
 	} catch(err) {
@@ -231,8 +231,8 @@ router.get('/pixiv', async(req, res) => {
 	}
 })
 router.get('/fbdl', async(req, res) => {
-	const link = req.query.link;
-const apikey = req.query.apikey;
+	var link = req.query.link;
+apikey = req.query.apikey;
 	   if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -242,17 +242,17 @@ const apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await dl(link)
+	var hasil = await dl(link)
 	try {
-		res.json(result)
+		res.json(hasil)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
 	}
 })
 router.get('/likeedl', async(req, res) => {
-	const link = req.query.link;
-	   const apikey = req.query.apikey;
+	var link = req.query.link;
+	   apikey = req.query.apikey;
 	   if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -262,9 +262,9 @@ router.get('/likeedl', async(req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await dl(link)
+	var hasil = await dl(link)
 	try {
-		res.json(result)
+		res.json(hasil)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
