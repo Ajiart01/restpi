@@ -6,12 +6,15 @@ const { cekKey, checkLimit, resetLimit } = require('../database/db');
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata, tebakkalimat, susunkata, tekateki, dadu, asahotak, truth, dare, tebaktebakan, family100 } = require('../controllers/randomtext');
 const { pinterest } = require('../scraper/index');
-const { mediafireDl, pinterestdl, scdl, sfiledl } = require('../scraper/index');
+const { tiktok, mediafireDl, pinterestdl, scdl, sfiledl, savetik } = require('../scraper/index');
+const { musicaldown } = require('../scraper/musicaldown');
 const { stickerDl } = require('../scraper/stickerpack');
 const { dl } = require('../scraper/aiovideodl');
 const { spotifydl } = require('../scraper/spotify');
+const { jooxdl, joox } = require('../scraper/joox');
 const { pixivDownload } = require('../scraper/pixiv');
 const { igStory, igStalk } = require('../scraper/igdl');
+const zipi = require('../scraper/zippy');
 const { photoOxy } = require('../controllers/oxy');
 const { tgContr } = require('../controllers/tebakgambar');
 const { mDo } = require('../controllers/media');
@@ -69,7 +72,7 @@ router.get('/igstalk', async (req, res) => {
     const apikey = req.query.apikey;
    if (query === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
-        message: `Input Parameter username & apikey`
+        message: `Input Parameter link & apikey`
     });
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -79,194 +82,6 @@ router.get('/igstalk', async (req, res) => {
     const result = await igStalk(username);
     res.send({status: 200, result: result});
 });
-
-router.get('/pindl', async(req, res) => {
-	var link = req.query.link;
-	   apikey = req.query.apikey;
-	   if (link === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-	var hasil = await pinterestdl(link)
-	try {
-		res.json(hasil)
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
-router.get('/scdl', async(req, res) => {
-	var link = req.query.link;
-apikey = req.query.apikey;
-	   if (link === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-	var hasil = await scdl(link)
-	try {
-		res.json(hasil)
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
-router.get('/spotifydl', async(req, res) => {
-	var link = req.query.link;
-apikey = req.query.apikey;
-	   if (link === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-	var hasil = await spotifydl.downloadTrack(link)
-	try {
-		await fs.writeFileSync(__path +'/tmp/audio.mp3', hasil)
-   		await res.sendFile(__path +'/tmp/audio.mp3')
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
-router.get('/spotify', async(req, res) => {
-	var link = req.query.link;
-apikey = req.query.apikey;
-	   if (link === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-	var hasil = await spotifydl.getTrack(link)
-	try {
-		res.json({ info: hasil, dl_lnk: `https://tyz-api.herokuapp.com/downloader/spotifydl?link=${link}` })
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
-router.get('/stickerpack', async(req, res) => {
-	var link = req.query.link;
-apikey = req.query.apikey;
-	   if (link === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-	var hasil = await stickerDl(link)
-	try {
-		res.json(hasil)
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
-
-router.get('/sfiledl', async(req, res) => {
-
-	var link = req.query.link;
-apikey = req.query.apikey;
-	   if (link === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-	var hasil = await sfiledl(link)
-	try {
-		res.json(hasil)
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
-
-router.get('/pixiv', async(req, res) => {
-	var id = req.query.id,
-	   ext = req.query.ext,
-  apikey = req.query.apikey;
-	   if (id === undefined || ext === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter id,ext & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-	var hasil = await pixivDownload(id, ext)
-	try {
-		var data = await getBuffer(hasil)
-		await fs.writeFileSync(__path +'/tmp/image.jpg', data)
-   		await res.sendFile(__path +'/tmp/image.jpg')
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
-router.get('/fbdl', async(req, res) => {
-	var link = req.query.link;
-apikey = req.query.apikey;
-	   if (link === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-	var hasil = await dl(link)
-	try {
-		res.json(hasil)
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
-router.get('/likeedl', async(req, res) => {
-	var link = req.query.link;
-	   apikey = req.query.apikey;
-	   if (link === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-	var hasil = await dl(link)
-	try {
-		res.json(hasil)
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
 
 router.get('/tiktok', tIk);
 
