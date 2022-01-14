@@ -34,7 +34,7 @@ function igDownload(Url) {
   })
 }
 
-function igStalk(Username) {
+function igStalk(username) {
   return new Promise((resolve, reject) => {
     axios.get('https://dumpor.com/v/'+Username, {
       headers: {
