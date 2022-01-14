@@ -161,8 +161,7 @@ limitAdd(apikey);
 res.status(200).send({
             status: 200, 
             result: result
-        });
-    }).catch(error => {
+        }).catch(error => {
         console.log(error);
         res.status(500).send({
             status: 500,
@@ -170,6 +169,5 @@ res.status(200).send({
         })
     });
 }
-
 
 module.exports = { youtubePlay, youtubeMp3, youtubeMp4, igdownloader, twitterdownloader, pinterest };
