@@ -97,7 +97,7 @@ router.get('/pindl', async(req, res) => {
     });
 	const result = await pinterestdl(link)
 	try {
-		res.json(hasil)
+		res.json(result)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
@@ -117,7 +117,7 @@ const apikey = req.query.apikey;
     });
 	const result = await scdl(link)
 	try {
-		res.json(hasil)
+		res.json(result)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
@@ -137,7 +137,7 @@ const apikey = req.query.apikey;
     });
 	const result = await spotifydl.downloadTrack(link)
 	try {
-		await fs.writeFileSync(__path +'/tmp/audio.mp3', hasil)
+		await fs.writeFileSync(__path +'/tmp/audio.mp3', result)
    		await res.sendFile(__path +'/tmp/audio.mp3')
 	} catch(err) {
 		console.log(err)
@@ -158,7 +158,7 @@ const apikey = req.query.apikey;
     });
 	const result = await spotifydl.getTrack(link)
 	try {
-		res.json({ info: hasil, dl_lnk: `https://tyz-api.herokuapp.com/downloader/spotifydl?link=${link}` })
+		res.json({ info: result, dl_lnk: `https://tyz-api.herokuapp.com/downloader/spotifydl?link=${link}` })
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
@@ -178,7 +178,7 @@ const apikey = req.query.apikey;
     });
 	const result = await stickerDl(link)
 	try {
-		res.json(hasil)
+		res.json(result)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
@@ -200,7 +200,7 @@ const apikey = req.query.apikey;
     });
 	const result = await sfiledl(link)
 	try {
-		res.json(hasil)
+		res.json(result)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
@@ -222,7 +222,7 @@ router.get('/pixiv', async(req, res) => {
     });
 	const result = await pixivDownload(id, ext)
 	try {
-		var data = await getBuffer(hasil)
+		var data = await getBuffer(result)
 		await fs.writeFileSync(__path +'/tmp/image.jpg', data)
    		await res.sendFile(__path +'/tmp/image.jpg')
 	} catch(err) {
@@ -244,7 +244,7 @@ const apikey = req.query.apikey;
     });
 	const result = await dl(link)
 	try {
-		res.json(hasil)
+		res.json(result)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
@@ -264,7 +264,7 @@ router.get('/likeedl', async(req, res) => {
     });
 	const result = await dl(link)
 	try {
-		res.json(hasil)
+		res.json(result)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
