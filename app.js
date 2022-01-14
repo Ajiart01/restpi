@@ -2,16 +2,16 @@ const axios = require("axios")
 const cheerio = require("cheerio")
 const express = require('express');
 const secure = require('ssl-express-www');
-const morgan = require('morgan')
-const multer = require('multer')
-const path = require('path')
-const fs = require('fs')
+const morgan = require('morgan');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 var app = express();
 app.use(secure)
 app.use(morgan('dev'));
 app.use(express.static('client'));
 app.set("json spaces",2)
-__path = process.cwd()
+__path = process.cwd();
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const expressLayout = require('express-ejs-layouts');
@@ -24,7 +24,6 @@ const rateLimit = require("express-rate-limit");
 const apiRouters = require('./routes/api');
 const userRouters = require('./routes/users');
 const premiumRouters = require('./routes/premium');
-
 const { isAuthenticated } = require('./lib/auth');
 const { connectMongoDb } = require('./database/connect');
 const { getApikey, resetLimit } = require('./database/db');
