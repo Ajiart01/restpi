@@ -20,6 +20,17 @@ const { connectMongoDb } = require('./database/connect');
 const { getApikey, resetLimit } = require('./database/db');
 const { port } = require('./lib/settings');
 const { ignoreFavicon } = require('./lib/function');
+var downloader = require('./server/downloader.js');
+var search = require('./server/search.js');
+var anime = require('./server/anime.js');
+var randomimg = require('./server/randomimage.js');
+var nsfw = require('./server/nsfw.js');
+var photooxy = require('./server/photooxy.js');
+var otakudesu = require('./server/otakudesu.js');
+var games = require('./server/games.js');
+var primbon = require('./server/primbon.js');
+var convert = require('./server/convert.js');
+var other = require('./server/other.js');
 const { ExpiredTime, getTotalReq, getTodayReq, getVisitor, getTotalUser, addRequest, addVisitor } = require('./database/premium');
 
 const PORT = process.env.PORT || port;
@@ -113,6 +124,17 @@ app.get('/price', (req, res) => {
 app.use('/api', apiRouters);
 app.use('/users', userRouters);
 app.use('/premium', premiumRouters);
+app.use('/downloader', downloader);
+app.use('/search', search);
+app.use('/anime', anime);
+app.use('/randomimg', randomimg);
+app.use('/nsfw', nsfw);
+app.use('/photooxy', photooxy);
+app.use('/otakudesu', otakudesu);
+app.use('/games', games);
+app.use('/primbon', primbon);
+app.use('/converter', convert);
+app.use('/other', other);
 
 app.set('json spaces', 4);
 
