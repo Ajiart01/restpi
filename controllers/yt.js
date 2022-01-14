@@ -156,21 +156,10 @@ async function pinterest(req, res) {
     });
 let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-    pinterest(query).then(result => {
+ const result = await pinterest(query);
 limitAdd(apikey);
-        res.status(200).send({
-            status: 200, 
-            result: result
-        });
-    }).catch(error => {
-        console.log(error);
-        res.status(500).send({
-            status: 500,
-            message: 'Internal Server Error'
-        })
-    });
+res.json({ result });
 }
-
 
 
 module.exports = { youtubePlay, youtubeMp3, youtubeMp4, igdownloader, twitterdownloader, pinterest };
