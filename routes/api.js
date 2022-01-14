@@ -1,8 +1,5 @@
 const express = require('express');
 const router = express.Router();
-__path = process.cwd()
-const fs = require('fs')
-const { getBuffer } = require('../lib/function')
 const { readFileTxt, readFileJson } = require('../lib/function');
 const { mp4, Mp3 } = require('../lib/youtube');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
@@ -93,13 +90,8 @@ router.get('/tiktok2', async(req, res) => {
         message: `apikey ${apikey} not found, please register first!`
     });
 	var hasil = await tiktok(link)
-	try {
-		res.json(hasil)
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
+	res.send({status: 200, result: hasil});
+});
 router.get('/tiktoknowm', async(req, res) => {
 	const link = req.query.link;
 	const apikey = req.query.apikey;
@@ -113,15 +105,9 @@ router.get('/tiktoknowm', async(req, res) => {
         message: `apikey ${apikey} not found, please register first!`
     });
 	var hasil = await musicaldown(link)
-	try {
-		var data = await getBuffer(hasil.nowm)
-		await fs.writeFileSync(__path +'/tmp/tiktok.mp4', data)
-   		await res.sendFile(__path +'/tmp/tiktok.mp4')
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
+	res.send({status: 200, result: hasil});
+});
+
 router.get('/tiktokaudio', async(req, res) => {
 	const link = req.query.link;
 	const apikey = req.query.apikey;
@@ -135,15 +121,8 @@ router.get('/tiktokaudio', async(req, res) => {
         message: `apikey ${apikey} not found, please register first!`
     });
 	var hasil = await musicaldown(link)
-	try {
-		var data = await getBuffer(hasil.audio)
-		await fs.writeFileSync(__path +'/tmp/tiktok.mp4', data)
-   		await res.sendFile(__path +'/tmp/tiktok.mp4')
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
+	res.send({status: 200, result: hasil});
+});
 
 
 router.get('/tiktok', tIk);
