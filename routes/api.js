@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const { spawn, exec } = require('child_process');
-var fs = require('fs');
 const axios = require('axios');
 const fetch = require('node-fetch');
 const { download } = require('fetch-video');
