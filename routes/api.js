@@ -58,7 +58,7 @@ router.get('/merdeka', async(req, res) => {
  res.json({ result })
 })
 
-
+/*
 router.get("/qrcode", (req, res) => {
  const qr = require('qr-image');
  const text = req.query.text;
@@ -79,8 +79,8 @@ router.get("/qrcode", (req, res) => {
  res.writeHead(200, {'Content-Type': 'image/png'});
  img.pipe(res);
 });
+*/
 
-/*
 router.get('/meme', async (req, res) => {
      const apikey = req.query.apikey;
         if (apikey === undefined) return res.status(404).send({
@@ -117,7 +117,6 @@ router.get('/meme', async (req, res) => {
          comments: comments 
     });
  })
-*/
 
 router.get('/artinama', async(req, res) => {
 	const nama = req.query.nama;
