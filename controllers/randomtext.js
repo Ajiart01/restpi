@@ -1328,4 +1328,628 @@ async function truth(req, res) {
     });
 }
 
-module.exports = {cakLontong, quotes, bijak, fakta, ptl, motivasi, naruto, indonesia, vietnam, thailand, malaysia, korea, japan, china, tiktok, asupan, geayubi, santuy, bocil, rikagusriani, harley, cecan, ukhty, anony, hijaber, joker, tebakchara, tebakjenaka, tebaklirik, tebakbendera, ppcouple, tebakkabupaten, tebakkata, tebakkimia, tebakkalimat, susunkata, tekateki, truth, dare, dadu, tebaktebakan, family100, asahotak, waifu, wallml, shota, loli, aesthetic, milf, cosplay, husbu, nekonime, quotenime, storyanime };
+async function ahegao(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/ahegao.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function bdsm(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/bdsm.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function gangbang(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/gangbang.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function ass(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/ass.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function blowjob(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/blowjob.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+async function cuckold(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/cuckold.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function cum(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/cum.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function ero(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/ero.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function femdom(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/femdom.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function foot(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/foot.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function glasses(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/glasses.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function hentaigift(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/hnt_gifs.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function hentai(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/hentai.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function jahy(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/jahy.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function nsfwneko(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/nsfwNeko.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function manga(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/manga.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+async function masturbation(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/masturbation.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function orgy(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/orgy.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function panties(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/panties.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function pussy(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/pussy.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function sfwneko(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/sfwNeko.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function tentacles(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/tentacles.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function thighs(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/thighs.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function yuri(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/yuri.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+async function zettairyouiki(req, res) {
+    const apikey = req.query.apikey;
+    if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    readFileJson('./lib/data/zettaiRyouiki.json').then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            soal: result.soal, 
+            jawaban: result.jawaban
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
+
+module.exports = {cakLontong, quotes, bijak, fakta, ptl, motivasi, naruto, indonesia, vietnam, thailand, malaysia, korea, japan, china, tiktok, asupan, geayubi, santuy, bocil, rikagusriani, harley, cecan, ukhty, anony, hijaber, joker, tebakchara, tebakjenaka, tebaklirik, tebakbendera, ppcouple, tebakkabupaten, tebakkata, tebakkimia, tebakkalimat, susunkata, tekateki, truth, dare, dadu, tebaktebakan, family100, asahotak, waifu, wallml, shota, loli, aesthetic, milf, cosplay, husbu, nekonime, quotenime, storyanime, ahegao, panties, gangbang, yuri, tentacles, zettairyouiki, thighs, sfwneko, pussy, nsfwneko, orgy, masturbation, manga, jahy, hentai, hentaigift, glasses, foot, femdom, cum, ero, cuckold, blowjob, ass, bdsm };
