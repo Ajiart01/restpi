@@ -5,8 +5,12 @@ const { mp4, Mp3 } = require('../lib/youtube');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata, tebakkalimat, susunkata, tekateki, dadu, asahotak, truth, dare, tebaktebakan, family100 } = require('../controllers/randomtext');
-const { pinterest } = require('../scraper/index');
-const { igStory, igStalk } = require('../scraper/igdl')
+const { pinterest, randomTiktok } = require('../scraper/index');
+const { stickerSearch } = require('../scraper/stickerpack');
+const { savetikVideo } = require('../scraper/savetik');
+const { happymodSearch } = require('../scraper/happymod');
+const { tiktokHastag } = require('../scraper/tiktok_search');
+const { igStory, igStalk } = require('../scraper/igdl');
 const { photoOxy } = require('../controllers/oxy');
 const { tgContr } = require('../controllers/tebakgambar');
 const { mDo } = require('../controllers/media');
@@ -75,6 +79,67 @@ router.get('/igstalk', async (req, res) => {
     res.send({status: 200, result: result});
 });
 
+router.get('/tiktok2', async(req, res) => {
+	const query = req.query.query;
+const apikey = req.query.apikey;
+	if (query === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter query & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	const result = await tiktokHastag(query)
+	res.json({ result })
+})
+router.get('/tiktokHastag', async(req, res) => {
+	const query = req.query.query;
+const apikey = req.query.apikey;
+	if (query === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter query & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	const result = await randomTiktok(query)
+	res.json({ result })
+})
+
+router.get('/happymod', async(req, res) => {
+	const query = req.query.query;
+const apikey = req.query.apikey;
+	if (query === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter query & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	const result = await happymodSearch(query)
+	res.json({ result })
+})
+router.get('/sticker', async(req, res) => {
+	const query = req.query.query;
+const apikey = req.query.apikey;
+	if (query === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter query & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	const result = await stickerSearch(query)
+	res.json({ result })
+})
 
 router.get('/tiktok', tIk);
 
