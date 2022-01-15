@@ -248,27 +248,6 @@ router.get('/stickerpack', async(req, res) => {
 	}
 })
 
-router.get('/textpro/natural', async(req, res) => {
-		const text = req.query.text;
-  const apikey = req.query.apikey;
-   if (text === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-	const data = await fetch(`https://viko-api.herokuapp.com/api/textpro/natural-leaves?apikey=vinko&text=${text}`)
-  try {
-		res.json(data)
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
-
 router.get('/tiktok', tIk);
 
 router.get('/mediafire', mDo);
