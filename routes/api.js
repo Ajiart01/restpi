@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 __path = process.cwd();
 const fs = require('fs');
-const { getBuffer } = require('../lib/function');
+const { fetch } = require('node-fetch');
 const { readFileTxt, readFileJson } = require('../lib/function');
 const { mp4, Mp3 } = require('../lib/youtube');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
@@ -247,7 +247,7 @@ router.get('/stickerpack', async(req, res) => {
 	}
 })
 
-router.get('/textpro/matrix', async(req, res) => {
+router.get('/textpro/natural', async(req, res) => {
 		const text = req.query.text;
   const apikey = req.query.apikey;
    if (text === undefined || apikey === undefined) return res.status(404).send({
@@ -259,13 +259,10 @@ router.get('/textpro/matrix', async(req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const data = await getBuffer(`https://api.zeks.me/api/matrix?apikey=apivinz&text=${text}`)
-		await fs.writeFileSync(__path +'/tmp/tiktok.mp4', data)
-   		await res.sendFile(__path +'/tmp/tiktok.mp4')
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
+	const data = await fetch(`https://viko-api.herokuapp.com/api/textpro/natural-leaves?apikey=vinko&text=${text}`)
+var getBuffer = await result.buffer()
+	await fs.writeFileSync(__path + '/tmp/image.jpg', getBuffer)
+	res.sendFile(__path + '/tmp/image.jpg')
 })
 
 router.get('/tiktok', tIk);
