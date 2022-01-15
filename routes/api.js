@@ -5,6 +5,7 @@ const fs = require('fs');
 const { getBuffer } = require('../lib/function');
 const { readFileTxt, readFileJson } = require('../lib/function');
 const { mp4, Mp3 } = require('../lib/youtube');
+const { limitAdd, isLimit } = require('../database/db');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata, tebakkalimat, susunkata, tekateki, dadu, asahotak, truth, dare, tebaktebakan, family100 } = require('../controllers/randomtext');
@@ -48,7 +49,10 @@ router.get('/pinterest', async (req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
+   let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
     const result = await pinterest(query);
+    limitAdd(apikey);
     res.send({status: 200, result: result});
 });
 
@@ -64,7 +68,10 @@ const apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await happymodSearch(query)
+let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	const result = await happymodSearch(query);
+limitAdd(apikey);
 	res.json({ result })
 })
 router.get('/sticker', async(req, res) => {
@@ -79,7 +86,10 @@ const apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await stickerSearch(query)
+let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	const result = await stickerSearch(query);
+	limitAdd(apikey);
 	res.json({ result })
 })
 
@@ -95,7 +105,10 @@ router.get('/pindl', async(req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const hasil = await pinterestdl(link)
+let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	const hasil = await pinterestdl(link);
+limitAdd(apikey);
 	try {
 		res.json(hasil)
 	} catch(err) {
@@ -115,7 +128,10 @@ const apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const hasil = await scdl(link)
+let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	const hasil = await scdl(link);
+limitAdd(apikey);
 	try {
 		res.json(hasil)
 	} catch(err) {
@@ -135,7 +151,10 @@ const apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const hasil = await sfiledl(link)
+let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	const hasil = await sfiledl(link);
+limitAdd(apikey);
 try {
 		res.json(hasil)
 	} catch(err) {
@@ -156,7 +175,10 @@ router.get('/igStory', async(req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const hasil = await igStory(username)
+let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	const hasil = await igStory(username);
+limitAdd(apikey);
 	try {
 		res.json(hasil)
 	} catch(err) {
@@ -176,7 +198,10 @@ router.get('/mediafireDl', async(req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const hasil = await mediafireDl(link)
+let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	const hasil = await mediafireDl(link);
+limitAdd(apikey);
 	try {
 		res.json(hasil)
 	} catch(err) {
@@ -196,7 +221,10 @@ router.get('/zippyShare', async(req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const hasil = await zipi.zippy(link)
+let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	const hasil = await zipi.zippy(link);
+limitAdd(apikey);
 	try {
 		res.json(hasil)
 	} catch(err) {
@@ -217,7 +245,10 @@ router.get('/likeedl', async(req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const hasil = await dl(link)
+let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	const hasil = await dl(link);
+limitAdd(apikey);
 	try {
 		res.json(hasil)
 	} catch(err) {
@@ -238,7 +269,10 @@ router.get('/stickerpack', async(req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const hasil = await stickerDl(link)
+let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	const hasil = await stickerDl(link);
+  limitAdd(apikey);
 	try {
 		res.json(hasil)
 	} catch(err) {
