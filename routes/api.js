@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+__path = process.cwd();
+const fs = require('fs');
 const { readFileTxt, readFileJson } = require('../lib/function');
 const { mp4, Mp3 } = require('../lib/youtube');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
@@ -10,6 +12,9 @@ const { stickerSearch } = require('../scraper/stickerpack');
 const { savetikVideo } = require('../scraper/savetik');
 const { happymodSearch } = require('../scraper/happymod');
 const { tiktokHastag } = require('../scraper/tiktok_search');
+const { pinterestdl, scdl } = require('../scraper/index');
+const { dl } = require('../scraper/aiovideodl');
+const { spotifydl } = require('../scraper/spotify');
 const { igStory, igStalk } = require('../scraper/igdl');
 const { photoOxy } = require('../controllers/oxy');
 const { tgContr } = require('../controllers/tebakgambar');
@@ -140,6 +145,89 @@ const apikey = req.query.apikey;
     });
 	const result = await stickerSearch(query)
 	res.json({ result })
+})
+
+router.get('/pindl', async(req, res) => {
+	const link = req.query.link;
+  const apikey = req.query.apikey;
+   if (link === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	const hasil = await pinterestdl(link)
+	try {
+		res.json(hasil)
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
+})
+router.get('/scdl', async(req, res) => {
+	const link = req.query.link;
+const apikey = req.query.apikey;
+	   if (link === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	const hasil = await scdl(link)
+	try {
+		res.json(hasil)
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
+})
+router.get('/spotifydl', async(req, res) => {
+	const link = req.query.link;
+const apikey = req.query.apikey;
+	   if (link === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	const hasil = await spotifydl.downloadTrack(link)
+	try {
+		await fs.writeFileSync(__path +'/tmp/audio.mp3', hasil)
+   		await res.sendFile(__path +'/tmp/audio.mp3')
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
+})
+
+router.get('/likeedl', async(req, res) => {
+	const link = req.query.link;
+  const apikey = req.query.apikey;
+   if (link === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	const hasil = await dl(link)
+	try {
+		res.json(hasil)
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
 })
 
 router.get('/tiktok', tIk);
