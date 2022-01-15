@@ -7,7 +7,7 @@ const { readFileTxt, readFileJson } = require('../lib/function');
 const { mp4, Mp3 } = require('../lib/youtube');
 const { limitAdd, isLimit } = require('../database/db');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
-const { pornhub } = require('../controllers/textpro');
+const { wattpad } = require('../lib/scrapt');
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata, tebakkalimat, susunkata, tekateki, dadu, asahotak, truth, dare, tebaktebakan, family100, storyanime, quotenime, loli, milf, husbu, aesthetic,  cosplay, shota, waifu, wallml, nekonime, ahegao, panties, gangbang, yuri, tentacles, zettairyouiki, thighs, sfwneko, pussy, nsfwneko, orgy, masturbation, manga, jahy, hentai, hentaigift, glasses, foot, femdom, cum, ero, cuckold, blowjob, ass, bdsm } = require('../controllers/randomtext');
 const { pinterest } = require('../scraper/index');
@@ -38,9 +38,8 @@ router.get('/checkkey', async (req, res) => {
     res.send({status: 200, apikey: apikey, limit: limit});
 });
 
-router.get('/textpro/pornhub', async (req, res) => {
+router.get('/other/wattpad', async (req, res) => {
     const text = req.query.text;
-    const text2 = req.query.text2;
     const apikey = req.query.apikey;
    if (text === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
@@ -53,7 +52,7 @@ router.get('/textpro/pornhub', async (req, res) => {
     });
    let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-    const result = await pornhub(text, text2);
+    const result = await wattpad(text);
     limitAdd(apikey);
     res.send({status: 200, result: result});
 });
