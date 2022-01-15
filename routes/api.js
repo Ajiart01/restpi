@@ -8,7 +8,7 @@ const { mp4, Mp3 } = require('../lib/youtube');
 const { limitAdd, isLimit } = require('../database/db');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
-const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata, tebakkalimat, susunkata, tekateki, dadu, asahotak, truth, dare, tebaktebakan, family100 } = require('../controllers/randomtext');
+const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata, tebakkalimat, susunkata, tekateki, dadu, asahotak, truth, dare, tebaktebakan, family100, storyanime, quotenime, loli, milf, husbu, aesthetic,  cosplay, shota, waifu, wallml, nekonime } = require('../controllers/randomtext');
 const { pinterest } = require('../scraper/index');
 const { stickerDl } = require('../scraper/stickerpack');
 const { stickerSearch } = require('../scraper/stickerpack');
@@ -384,5 +384,27 @@ router.get('/game/family100', family100);
 router.get('/game/susunkata', susunkata);
 
 router.get('/ppcouple', ppcouple);
+
+router.get('/anime/shota', shota);
+
+router.get('/anime/aesthetic', aesthetic);
+
+router.get('/anime/cosplay', cosplay);
+
+router.get('/anime/storyanime', storyanime);
+
+router.get('/anime/wallml', wallml);
+
+router.get('/anime/waifu', waifu);
+
+router.get('/anime/quotenime', quotenime);
+
+router.get('/anime/husbu', husbu);
+
+router.get('/anime/nekonime', nekonime);
+
+router.get('/anime/milf', milf);
+
+router.get('/anime/loli', loli);
 
 module.exports = router;
