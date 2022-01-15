@@ -12,6 +12,7 @@ const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, th
 const { pinterest } = require('../scraper/index');
 const { artinama, ramalanJodoh } = require('../scraper/primbon');
 const { mynimeku } = require('../scraper/mynime');
+const { merdekaNews } = require('../scraper/merdekanews');
 const { stickerDl } = require('../scraper/stickerpack');
 const { stickerSearch } = require('../scraper/stickerpack');
 const { happymodSearch } = require('../scraper/happymod');
@@ -38,6 +39,83 @@ router.get('/checkkey', async (req, res) => {
     const limit = await checkLimit(apikey);
     res.send({status: 200, apikey: apikey, limit: limit});
 });
+
+router.get('/merdeka', async(req, res) => {
+  const apikey = req.query.apikey;
+     if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+ const result = await merdekaNews();
+ limitAdd(apikey);
+ res.json({ result })
+})
+
+router.get("/qrcode", (req, res) => {
+ const qr = require('qr-image');
+ const text = req.query.text;
+ const apikey = req.query.apikey;
+   if (text === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+ const img = qr.image(text,{size :13});
+ limitAdd(apikey);
+ res.writeHead(200, {'Content-Type': 'image/png'});
+ img.pipe(res);
+});
+
+router.get('/meme', async (req, res) => {
+     const apikey = req.query.apikey;
+        if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+     const fetch = require('node-fetch');
+     const subReddits = ["dankmeme", "meme", "memes"];
+     const random = Math.floor(Math.random() * subReddits.length)
+     const body = await fetch('https://www.reddit.com/r/' + subReddits[random] + '/random/.json')
+     body = await body.json()
+     const a = body[0]
+     const title = a.data.children[0].data.title
+     const url = 'https://reddit.com'+a.data.children[0].data.permalink
+     const link = a.data.children[0].data.url_overridden_by_dest
+     const ups = a.data.children[0].data.ups
+     const comments = a.data.children[0].data.num_comments
+     const sub = a.data.children[0].data.subreddit_name_prefixed
+     const preview = a.data.children[0].data.preview
+     limitAdd(apikey);
+     return res.json({
+         status: true,
+         title: title, 
+         url: url, 
+         image: link, 
+         ups: ups, 
+         comments: comments 
+    });
+ })
+
 
 router.get('/artinama', async(req, res) => {
 	const nama = req.query.nama;
