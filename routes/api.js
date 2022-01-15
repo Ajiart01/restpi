@@ -58,6 +58,7 @@ router.get('/merdeka', async(req, res) => {
  res.json({ result })
 })
 
+/*
 router.get("/qrcode", (req, res) => {
  const qr = require('qr-image');
  const text = req.query.text;
@@ -115,7 +116,7 @@ router.get('/meme', async (req, res) => {
          comments: comments 
     });
  })
-
+*/
 
 router.get('/artinama', async(req, res) => {
 	const nama = req.query.nama;
