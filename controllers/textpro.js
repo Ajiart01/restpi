@@ -12,7 +12,7 @@ module.exports.blackpink = function blackpink(text1) {
 
 module.exports.pornhub = function pornhub(text1, text2) {
 	return new Promise((resolve, reject) => {
-		bent('buffer')(baseURI+'/api/textpro/pornhub?text1=' + encodeURIComponent(text1) + '&text2=' + encodeURIComponent(text2) + '&apikey=apirey')
+		bent('getBuffer')(baseURI+'/api/textpro/pornhub?text1=' + encodeURIComponent(text1) + '&text2=' + encodeURIComponent(text2) + '&apikey=apirey')
 		.then(resolve)
 		.catch(reject)
 	})
