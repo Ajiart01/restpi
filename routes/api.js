@@ -260,7 +260,7 @@ router.get('/textpro/natural', async(req, res) => {
         message: `apikey ${apikey} not found, please register first!`
     });
 	const data = await fetch(`https://viko-api.herokuapp.com/api/textpro/natural-leaves?apikey=vinko&text=${text}`)
-var getBuffer = await data.result()
+  const getBuffer = await getBuffer(data.result)
 	await fs.writeFileSync(__path + '/tmp/image.jpg', getBuffer)
 	res.sendFile(__path + '/tmp/image.jpg')
 })
