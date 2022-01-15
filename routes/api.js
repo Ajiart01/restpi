@@ -11,7 +11,6 @@ const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } =
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata, tebakkalimat, susunkata, tekateki, dadu, asahotak, truth, dare, tebaktebakan, family100, storyanime, quotenime, loli, milf, husbu, aesthetic,  cosplay, shota, waifu, wallml, nekonime, ahegao, panties, gangbang, yuri, tentacles, zettairyouiki, thighs, sfwneko, pussy, nsfwneko, orgy, masturbation, manga, jahy, hentai, hentaigift, glasses, foot, femdom, cum, ero, cuckold, blowjob, ass, bdsm } = require('../controllers/randomtext');
 const { pinterest } = require('../scraper/index');
 const { artinama, ramalanJodoh } = require('../scraper/primbon');
-const { mynimeku } = require('../scraper/mynime');
 const { merdekaNews } = require('../scraper/merdekanews');
 const { stickerDl } = require('../scraper/stickerpack');
 const { stickerSearch } = require('../scraper/stickerpack');
@@ -165,26 +164,6 @@ router.get('/ramalanjodoh', async(req, res) => {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
 	}
-})
-
-router.get('/mynimekuSearch', async(req, res) => {
-  const query = req.query.query
-  const result = await Search(query)
-  if (result > 1) return res.json({ message: 'anime not found!' })
-  res.json(result)
-})
-
-router.get('/mynimekuDetail', async(req, res) => {
-  	const link = req.query.link
-   const result = await mynimeku.animeDetail(link);
-limitAdd(apikey);
-   res.json(result)
-})
-
-router.get('/mynimekuDownload', async(req, res) => {
-  	const link = req.query.link
-   const result = await mynimeku.downloadEps(link)
-   res.json(result)
 })
 
 router.get('/pinterest', async (req, res) => {
