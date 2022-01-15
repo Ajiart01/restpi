@@ -91,11 +91,11 @@ const apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await tiktokHastag(query)
-	res.send({status: 200, result: result});
-});
+	const result = await randomTiktok(query)
+	res.json({ result })
+})
 
-router.get('/tiktokHastag', async(req, res) => {
+router.get('/tiktokhastag', async(req, res) => {
 	const query = req.query.query;
 const apikey = req.query.apikey;
 	if (query === undefined || apikey === undefined) return res.status(404).send({
@@ -107,9 +107,9 @@ const apikey = req.query.apikey;
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-	const result = await randomTiktok(query)
-	res.send({status: 200, result: result});
-});
+	const result = await tiktokHastag(query)
+	res.json({ result })
+})
 
 router.get('/happymod', async(req, res) => {
 	const query = req.query.query;
@@ -124,9 +124,8 @@ const apikey = req.query.apikey;
         message: `apikey ${apikey} not found, please register first!`
     });
 	const result = await happymodSearch(query)
-	res.send({status: 200, result: result});
-});
-
+	res.json({ result })
+})
 router.get('/sticker', async(req, res) => {
 	const query = req.query.query;
 const apikey = req.query.apikey;
@@ -140,8 +139,8 @@ const apikey = req.query.apikey;
         message: `apikey ${apikey} not found, please register first!`
     });
 	const result = await stickerSearch(query)
-	res.send({status: 200, result: result});
-});
+	res.json({ result })
+})
 
 router.get('/tiktok', tIk);
 
