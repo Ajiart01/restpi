@@ -168,60 +168,22 @@ router.get('/ramalanjodoh', async(req, res) => {
 })
 
 router.get('/mynimekuSearch', async(req, res) => {
-  const query = req.query.query;
-  const apikey = req.query.apikey;
-     if (query === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-let limit = await isLimit(apikey);
-    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  const result = await mynimeku.Search(query);
-limitAdd(apikey);
+  const query = req.query.query
+  const result = await mynimeku.Search(query)
   if (result > 1) return res.json({ message: 'anime not found!' })
   res.json(result)
 })
 
 router.get('/mynimekuDetail', async(req, res) => {
-  	const link = req.query.link;
-  const apikey = req.query.apikey;
-   if (link === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-let limit = await isLimit(apikey);
-    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  	const link = req.query.link
    const result = await mynimeku.animeDetail(link);
 limitAdd(apikey);
    res.json(result)
 })
 
 router.get('/mynimekuDownload', async(req, res) => {
-  	const link = req.query.link;
-  const apikey = req.query.apikey;
-   if (link === undefined || apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter link & apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-let limit = await isLimit(apikey);
-    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-   const result = await mynimeku.downloadEps(link);
-limitAdd(apikey);
+  	const link = req.query.link
+   const result = await mynimeku.downloadEps(link)
    res.json(result)
 })
 
