@@ -58,7 +58,7 @@ router.get('/merdeka', async(req, res) => {
  res.json({ result })
 })
 
-/*
+
 router.get("/qrcode", (req, res) => {
  const qr = require('qr-image');
  const text = req.query.text;
@@ -80,6 +80,7 @@ router.get("/qrcode", (req, res) => {
  img.pipe(res);
 });
 
+/*
 router.get('/meme', async (req, res) => {
      const apikey = req.query.apikey;
         if (apikey === undefined) return res.status(404).send({
