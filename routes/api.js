@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 __path = process.cwd();
 const fs = require('fs');
+const { getBuffer } = require('../lib/function');
 const { fetch } = require('node-fetch');
 const { readFileTxt, readFileJson } = require('../lib/function');
 const { mp4, Mp3 } = require('../lib/youtube');
