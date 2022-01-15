@@ -2,12 +2,14 @@ const express = require('express');
 const router = express.Router();
 __path = process.cwd();
 const fs = require('fs');
+const { getBuffer } = require('../lib/function');
 const { readFileTxt, readFileJson } = require('../lib/function');
 const { mp4, Mp3 } = require('../lib/youtube');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata, tebakkalimat, susunkata, tekateki, dadu, asahotak, truth, dare, tebaktebakan, family100 } = require('../controllers/randomtext');
 const { pinterest } = require('../scraper/index');
+const { stickerDl } = require('../scraper/stickerpack');
 const { stickerSearch } = require('../scraper/stickerpack');
 const { happymodSearch } = require('../scraper/happymod');
 const { mediafireDl, pinterestdl, scdl, sfiledl } = require('../scraper/index');
@@ -216,6 +218,27 @@ router.get('/likeedl', async(req, res) => {
         message: `apikey ${apikey} not found, please register first!`
     });
 	const hasil = await dl(link)
+	try {
+		res.json(hasil)
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
+})
+
+router.get('/stickerpack', async(req, res) => {
+		const link = req.query.link;
+  const apikey = req.query.apikey;
+   if (link === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+	const hasil = await stickerDl(link)
 	try {
 		res.json(hasil)
 	} catch(err) {
