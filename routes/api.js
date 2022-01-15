@@ -81,7 +81,7 @@ router.get("/qrcode", (req, res) => {
  img.pipe(res);
 });
 
-//Meme
+/*
 router.get('/meme', async (req, res) => {
      const apikey = req.query.apikey;
         if (apikey === undefined) return res.status(404).send({
@@ -118,7 +118,7 @@ router.get('/meme', async (req, res) => {
          comments: comments 
     });
  })
-
+*/
 router.get('/artinama', async(req, res) => {
 	const nama = req.query.nama;
 	const apikey = req.query.apikey;
