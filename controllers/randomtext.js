@@ -1225,7 +1225,8 @@ async function quotenime(req, res) {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
-            result: result
+            Quote: result.quote,
+            Character: result.char
         });
     }).catch(error => {
         console.log(error);
