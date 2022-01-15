@@ -92,8 +92,9 @@ const apikey = req.query.apikey;
         message: `apikey ${apikey} not found, please register first!`
     });
 	const result = await tiktokHastag(query)
-	res.json({ result })
-})
+	res.send({status: 200, result: result});
+});
+
 router.get('/tiktokHastag', async(req, res) => {
 	const query = req.query.query;
 const apikey = req.query.apikey;
@@ -107,8 +108,8 @@ const apikey = req.query.apikey;
         message: `apikey ${apikey} not found, please register first!`
     });
 	const result = await randomTiktok(query)
-	res.json({ result })
-})
+	res.send({status: 200, result: result});
+});
 
 router.get('/happymod', async(req, res) => {
 	const query = req.query.query;
@@ -123,8 +124,9 @@ const apikey = req.query.apikey;
         message: `apikey ${apikey} not found, please register first!`
     });
 	const result = await happymodSearch(query)
-	res.json({ result })
-})
+	res.send({status: 200, result: result});
+});
+
 router.get('/sticker', async(req, res) => {
 	const query = req.query.query;
 const apikey = req.query.apikey;
@@ -138,8 +140,8 @@ const apikey = req.query.apikey;
         message: `apikey ${apikey} not found, please register first!`
     });
 	const result = await stickerSearch(query)
-	res.json({ result })
-})
+	res.send({status: 200, result: result});
+});
 
 router.get('/tiktok', tIk);
 
