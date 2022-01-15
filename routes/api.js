@@ -169,7 +169,7 @@ router.get('/ramalanjodoh', async(req, res) => {
 
 router.get('/mynimekuSearch', async(req, res) => {
   const query = req.query.query
-  const result = await mynimeku.Search(query)
+  const result = await Search(query)
   if (result > 1) return res.json({ message: 'anime not found!' })
   res.json(result)
 })
