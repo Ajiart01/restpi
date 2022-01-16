@@ -133,10 +133,9 @@ router.get('/textpro/natural', async(req, res) => {
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
     const hasil = await fetchJson(`https://yuzzu-api.herokuapp.com/api/textpro/blackpink?text=${text}`);
-    const hasilv = hasil.result();
     limitAdd(apikey);
 	   try {
-		res.json(hasilv)
+		res.json(hasil)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
