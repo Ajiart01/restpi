@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 __path = process.cwd();
 const fs = require('fs');
-const zrapi = require("zrapi");
 const { fetch } = require('node-fetch');
 const { getBuffer } = require('../lib/function');
 const { readFileTxt, readFileJson } = require('../lib/function');
