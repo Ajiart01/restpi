@@ -135,14 +135,8 @@ router.get('/photooxy/romantic', async(req, res) => {
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
     const hasil = await pRomantic(text);
     limitAdd(apikey);
-	  try {
-		res.json(hasil)
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
-    
+		res.json(hasil);
+});
     
 router.get('/artinama', async(req, res) => {
 	const nama = req.query.nama;
