@@ -11,7 +11,7 @@ const { cekKey, checkLimit, resetLimit } = require('../database/db');
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata, tebakkalimat, susunkata, tekateki, dadu, asahotak, truth, dare, tebaktebakan, family100, storyanime, quotenime, loli, milf, husbu, aesthetic,  cosplay, shota, waifu, wallml, nekonime, ahegao, panties, gangbang, yuri, tentacles, zettairyouiki, thighs, sfwneko, pussy, nsfwneko, orgy, masturbation, manga, jahy, hentai, hentaigift, glasses, foot, femdom, cum, ero, cuckold, blowjob, ass, bdsm } = require('../controllers/randomtext');
 const { pinterest } = require('../scraper/index');
-const { pShadow } = require('../controllers/photooxy');
+const { pRomantic } = require('../controllers/photooxy');
 const { artinama, ramalanJodoh } = require('../scraper/primbon');
 const { merdekaNews } = require('../scraper/merdekanews');
 const { stickerDl } = require('../scraper/stickerpack');
@@ -119,7 +119,7 @@ router.get('/meme', async (req, res) => {
     });
  })
 
-router.get('/photooxy/shadow', async(req, res) => {
+router.get('/photooxy/romantic', async(req, res) => {
   const text = req.query.text;
 	const apikey = req.query.apikey;
    if (text === undefined || apikey === undefined) return res.status(404).send({
@@ -133,7 +133,7 @@ router.get('/photooxy/shadow', async(req, res) => {
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-    const hasil = await pShadow(text);
+    const hasil = await pRomantic(text);
     limitAdd(apikey);
 	  try {
 		res.json(hasil)
