@@ -153,10 +153,7 @@ router.get('/textpro/blackpink', async(req, res) => {
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-zrapi 
-  .textpro("https://textpro.me/create-blackpink-logo-style-online-1001.html", [
-    text,
-  ]).then(result => {
+zrapi.textpro("https://textpro.me/create-blackpink-logo-style-online-1001.html", [text]).then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
