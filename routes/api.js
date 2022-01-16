@@ -10,6 +10,7 @@ const { limitAdd, isLimit } = require('../database/db');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil, tebakjenaka, tebaklirik, ppcouple, tebakchara, tebakbendera, tebakkabupaten, tebakkimia, tebakkata, tebakkalimat, susunkata, tekateki, dadu, asahotak, truth, dare, tebaktebakan, family100, storyanime, quotenime, loli, milf, husbu, aesthetic,  cosplay, shota, waifu, wallml, nekonime, ahegao, panties, gangbang, yuri, tentacles, zettairyouiki, thighs, sfwneko, pussy, nsfwneko, orgy, masturbation, manga, jahy, hentai, hentaigift, glasses, foot, femdom, cum, ero, cuckold, blowjob, ass, bdsm } = require('../controllers/randomtext');
+const zrapi = require("zrapi");
 const { pinterest } = require('../scraper/index');
 const { pShadow } = require('../controllers/photooxy');
 const { artinama, ramalanJodoh } = require('../scraper/primbon');
@@ -133,16 +134,39 @@ router.get('/photooxy/shadow', async(req, res) => {
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-    const hasil = await pShadow(text);
+    const result = await pShadow(text);
     limitAdd(apikey);
-	  try {
-		res.json(hasil)
-	} catch(err) {
-		console.log(err)
-		res.json({ message: 'Ups, error' })
-	}
-})
+	  res.send({status: 200, result: result});
+});
     
+router.get('/textpro/blackpink', async(req, res) => {
+  const text = req.query.text;
+	const apikey = req.query.apikey;
+   if (text === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+zrapi 
+  .textpro("https://textpro.me/create-blackpink-logo-style-online-1001.html", [
+    text,
+  ]).then(result => {
+        limitAdd(apikey);
+        res.status(200).send({
+            status: 200, 
+            result: result
+        });
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send({status: 500, message: 'Internal Server Error'});
+    });
+}
     
 router.get('/artinama', async(req, res) => {
 	const nama = req.query.nama;
