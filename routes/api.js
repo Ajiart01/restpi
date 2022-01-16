@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 __path = process.cwd();
 const fs = require('fs');
+const { fetch } = require('node-fetch');
 const { getBuffer } = require('../lib/function');
 const { readFileTxt, readFileJson } = require('../lib/function');
 const { mp4, Mp3 } = require('../lib/youtube');
@@ -117,6 +118,31 @@ router.get('/meme', async (req, res) => {
     });
  })
 
+router.get('/textpro/natural', async(req, res) => {
+  const text = req.query.text;
+	const apikey = req.query.apikey;
+   if (text === undefined || apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter link & apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+    const hasil = await fetchJson(`https://yuzzu-api.herokuapp.com/api/textpro/blackpink?text=${text}`);
+    limitAdd(apikey);
+	   try {
+		res.json(hasil)
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
+})
+    
+    
 router.get('/artinama', async(req, res) => {
 	const nama = req.query.nama;
 	const apikey = req.query.apikey;
