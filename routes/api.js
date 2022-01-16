@@ -135,7 +135,7 @@ router.get('/textpro/natural', async(req, res) => {
     const hasil = await fetchJson(`https://yuzzu-api.herokuapp.com/api/textpro/blackpink?text=${text}`);
     limitAdd(apikey);
 	   try {
-		res.json(hasil)
+		res.json(hasil.result)
 	} catch(err) {
 		console.log(err)
 		res.json({ message: 'Ups, error' })
