@@ -336,6 +336,8 @@ limitAdd(apikey);
 		res.json({ message: 'Ups, error' })
 	}
 })
+
+
 router.get('/mediafireDl', async(req, res) => {
 		const link = req.query.link;
   const apikey = req.query.apikey;
@@ -359,6 +361,8 @@ limitAdd(apikey);
 		res.json({ message: 'Ups, error' })
 	}
 })
+
+
 router.get('/zippyShare', async(req, res) => {
 		const link = req.query.link;
   const apikey = req.query.apikey;
