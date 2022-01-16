@@ -21,7 +21,7 @@ async function pShadow(text1) {
     const options = { method: 'POST',
       url: tema.shadow,
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      formData: { text_1: text1, login: 'OK' } };
+      formData: { Your text: text1, login: 'GO' } };
     
     request(options, async function (error, response, body) {
       if (error) throw new Error(error);
