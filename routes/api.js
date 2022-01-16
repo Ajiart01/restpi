@@ -132,20 +132,11 @@ router.get('/textpro/natural', async(req, res) => {
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-   fetch(encodeURI(`https://yuzzu-api.herokuapp.com/api/textpro/blackpink?text=${text}`));
+    const hasil = await fetch(`https://yuzzu-api.herokuapp.com/api/textpro/blackpink?text=${text}`);
     limitAdd(apikey);
-	    .then(response => response.json())
-        .then(data => {
-        consr result = data;
-             res.json({
-             	 creator: 'Bambang Ganteng',
-                 status: true,
-                 code: 200,
-                 message: 'Jangan ditembak bang',
-                 result
-          });
-      });
+	   res.send({status: 200, result: hasil.result});
 });
+    
     
 router.get('/artinama', async(req, res) => {
 	const nama = req.query.nama;
