@@ -133,10 +133,16 @@ router.get('/photooxy/shadow', async(req, res) => {
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-    const result = await pShadow(text);
+    const hasil = await pShadow(text);
     limitAdd(apikey);
-	  res.send({status: 200, result: result});
-});
+	  try {
+		res.json(hasil)
+	} catch(err) {
+		console.log(err)
+		res.json({ message: 'Ups, error' })
+	}
+})
+    
     
 router.get('/artinama', async(req, res) => {
 	const nama = req.query.nama;
@@ -336,8 +342,6 @@ limitAdd(apikey);
 		res.json({ message: 'Ups, error' })
 	}
 })
-
-
 router.get('/mediafireDl', async(req, res) => {
 		const link = req.query.link;
   const apikey = req.query.apikey;
@@ -361,8 +365,6 @@ limitAdd(apikey);
 		res.json({ message: 'Ups, error' })
 	}
 })
-
-
 router.get('/zippyShare', async(req, res) => {
 		const link = req.query.link;
   const apikey = req.query.apikey;
