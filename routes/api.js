@@ -163,7 +163,7 @@ zrapi.textpro("https://textpro.me/create-blackpink-logo-style-online-1001.html",
         console.log(error);
         res.status(500).send({status: 500, message: 'Internal Server Error'});
     });
-}
+};
     
 router.get('/artinama', async(req, res) => {
 	const nama = req.query.nama;
