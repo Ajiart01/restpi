@@ -445,8 +445,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/keneki.json')
-.then(result => {
+  readFileJson('/lib/keneki.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -471,8 +470,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/megumin.json')
-.then(result => {
+  readFileJson('/lib/megumin.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -497,8 +495,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/yotsuba.json')
-.then(result => {
+  readFileJson('/lib/yotsuba.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -523,8 +520,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/shinomiya.json')
-.then(result => {
+  readFileJson('/lib/shinomiya.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -549,8 +545,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/yumeko.json')
-  .then(result => {
+  readFileJson('/lib/yumeko.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -575,8 +570,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/tejina.json')
-  .then(result => {
+  readFileJson('/lib/tejina.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -601,8 +595,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/chiho.json')
-  .then(result => {
+  readFileJson('/lib/chiho.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -627,8 +620,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/CyberSpace.json')
-  .then(result => {
+  readFileJson('/lib/CyberSpace.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -653,8 +645,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/GameWallp.json')
-  .then(result => {
+  readFileJson('/lib/GameWallp.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -679,8 +670,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/Islamic.json')
-  .then(result => {
+  readFileJson('/lib/Islamic.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -705,8 +695,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/Programming.json')
-  .then(result => {
+  readFileJson('/lib/Programming.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -731,8 +720,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/Technology.json')
-  .then(result => {
+  readFileJson('/lib/Technology.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -757,8 +745,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/Mountain.json')
-.then(result => {
+  readFileJson('/lib/Mountain.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -783,8 +770,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/tatasurya.json')
-  .then(result => {
+  readFileJson('/lib/tatasurya.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -809,8 +795,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/kartun.json')
-  .then(result => {
+  readFileJson('/lib/kartun.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -836,8 +821,7 @@ router.get('/wallpaper/pentol', async (req, res) => {
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/pentol.json')
-  .then(result => {
+  readFileJson('/lib/pentol.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -862,8 +846,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/katakata.json')
-  .then(result => {
+  readFileJson('/lib/katakata.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -888,8 +871,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/toukachan.json')
-  .then(result => {
+  readFileJson('/lib/toukachan.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -914,8 +896,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/akira.json')
-  .then(result => {
+  readFileJson('/lib/akira.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -940,8 +921,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/itori.json')
-  .then(result => {
+  readFileJson('/lib/itori.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -966,8 +946,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/kurumi.json')
-  .then(result => {
+  readFileJson('/lib/kurumi.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -992,8 +971,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/miku.json')
-  .then(result => {
+  readFileJson('/lib/miku.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1018,8 +996,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/pokemon.json')
-  .then(result => {
+  readFileJson('/lib/pokemon.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1044,8 +1021,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/ryujin.json')
-  .then(result => {
+  readFileJson('/lib/ryujin.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1070,8 +1046,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/rose.json')
-  .then(result => {
+  readFileJson('/lib/rose.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1096,8 +1071,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/kaori.json')
-  .then(result => {
+  readFileJson('/lib/kaori.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1122,8 +1096,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/shizuka.json')
-  .then(result => {
+  readFileJson('/lib/shizuka.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1148,8 +1121,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/kaga.json')
-  .then(result => {
+  readFileJson('/lib/kaga.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1174,8 +1146,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/kotori.json')
-  .then(result => {
+  readFileJson('/lib/kotori.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1200,8 +1171,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/mikasa.json')
-  .then(result => {
+  readFileJson('/lib/mikasa.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1226,8 +1196,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/akiyama.json')
-  .then(result => {
+  readFileJson('/lib/akiyama.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1252,8 +1221,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/gremory.json')
-  .then(result => {
+  readFileJson('/lib/gremory.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1278,8 +1246,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/isuzu.json')
-  .then(result => {
+  readFileJson('/lib/isuzu.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1304,8 +1271,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/cosplay.json')
-  .then(result => {
+  readFileJson('/lib/cosplay.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1330,8 +1296,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/shina.json')
-  .then(result => {
+  readFileJson('/lib/shina.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1356,8 +1321,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/kagura.json')
-  .then(result => {
+  readFileJson('/lib/kagura.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1382,8 +1346,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/shinka.json')
-  .then(result => {
+  readFileJson('/lib/shinka.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1408,8 +1371,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/eba.json')
-  .then(result => {
+  readFileJson('/lib/eba.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1434,8 +1396,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/deidara.json')
-  .then(result => {
+  readFileJson('/lib/deidara.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1460,8 +1421,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/trans.json')
-  .then(result => {
+  readFileJson('/lib/trans.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1486,8 +1446,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/jeni.json')
-  .then(result => {
+  readFileJson('/lib/jeni.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1512,8 +1471,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/jiso.json')
-  .then(result => {
+  readFileJson('/lib/jiso.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1538,8 +1496,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/satanic.json')
-  .then(result => {
+  readFileJson('/lib/satanic.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1564,8 +1521,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/cecan2.json')
-  .then(result => {
+  readFileJson('/lib/cecan2.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1590,8 +1546,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/cogan2.json')
-  .then(result => {
+  readFileJson('/lib/cogan2.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1616,8 +1571,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/itachi.json')
-  .then(result => {
+  readFileJson('/lib/itachi.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1642,8 +1596,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/madara.json')
-  .then(result => {
+  readFileJson('/lib/madara.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1668,8 +1621,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/yuki.json')
-  .then(result => {
+  readFileJson('/lib/yuki.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1694,8 +1646,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/asuna.json')
-  .then(result => {
+  readFileJson('/lib/asuna.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1720,8 +1671,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/ayuzawa.json')
-  .then(result => {
+  readFileJson('/lib/ayuzawa.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1746,8 +1696,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/chitoge.json')
-  .then(result => {
+  readFileJson('/lib/chitoge.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1772,8 +1721,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/emilia.json')
-  .then(result => {
+  readFileJson('/lib/emilia.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1798,8 +1746,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/hestia.json')
-  .then(result => {
+  readFileJson('/lib/hestia.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1823,8 +1770,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/inori.json')
-  .then(result => {
+  readFileJson('/lib/inori.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1849,8 +1795,7 @@ router.get('/wallpaper/elaina', async (req, res) => {
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-readFileJson('/lib/elaina.json'))
-.then(result => {
+readFileJson('/lib/elaina.json')).then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1876,8 +1821,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-readFileJson('/lib/loli.json'))
-.then(result => {
+readFileJson('/lib/loli.json')).then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1903,8 +1847,7 @@ router.get('/wallpaper/yuri', async (req, res) => {
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-readFileJson('/lib/yuri.json'))
-.then(result => {
+readFileJson('/lib/yuri.json')).then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1930,8 +1873,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/cecan.json')
-  .then(result => {
+  readFileJson('/lib/cecan.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1957,8 +1899,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/aesthetic.json')
-  .then(result => {
+  readFileJson('/lib/aesthetic.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -1984,8 +1925,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/justina.json')
-  .then(result => {
+  readFileJson('/lib/justina.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -2010,8 +1950,7 @@ router.get('/wallpaper/sagiri', async (req, res) => {
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/sagiri.json')
-  .then(result => {
+  readFileJson('/lib/sagiri.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
@@ -2036,8 +1975,7 @@ if (apikey === undefined) return res.status(404).send({
     });
     let limit = await isLimit(apikey);
     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-  readFileJson('/lib/hinata.json')
-  .then(result => {
+  readFileJson('/lib/hinata.json').then(result => {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
