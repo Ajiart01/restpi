@@ -431,6 +431,1904 @@ let limit = await isLimit(apikey);
 	}
 })
 
+router.get('/wallpaper/keneki', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const keneki = JSON.parse(fs.readFileSync(__path +'/lib/keneki.json'));
+  const randkeneki = keneki[Math.floor(Math.random() * keneki.length)];
+  data = await fetch(randkeneki).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/keneki.jpeg', data)
+  res.sendFile(__path +'/tmp/keneki.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/megumin', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const megumin = JSON.parse(fs.readFileSync(__path +'/lib/megumin.json'));
+  const randmegumin = megumin[Math.floor(Math.random() * megumin.length)];
+  data = await fetch(randmegumin).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/megumin.jpeg', data)
+  res.sendFile(__path +'/tmp/megumin.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/yotsuba', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const yotsuba = JSON.parse(fs.readFileSync(__path +'/lib/yotsuba.json'));
+  const randyotsuba = yotsuba[Math.floor(Math.random() * yotsuba.length)];
+  data = await fetch(randyotsuba).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/yotsuba.jpeg', data)
+  res.sendFile(__path +'/tmp/yotsuba.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/shinomiya', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const shinomiya = JSON.parse(fs.readFileSync(__path +'/lib/shinomiya.json'));
+  const randshinomiya = shinomiya[Math.floor(Math.random() * shinomiya.length)];
+  data = await fetch(randshinomiya).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/shinomiya.jpeg', data)
+  res.sendFile(__path +'/tmp/shinomiya.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/yumeko', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const yumeko = JSON.parse(fs.readFileSync(__path +'/lib/yumeko.json'));
+  const randyumeko = yumeko[Math.floor(Math.random() * yumeko.length)];
+  data = await fetch(randyumeko).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/yumeko.jpeg', data)
+  res.sendFile(__path +'/tmp/yumeko.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/tejina', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const tejina = JSON.parse(fs.readFileSync(__path +'/lib/tejina.json'));
+  const randtejina = tejina[Math.floor(Math.random() * tejina.length)];
+  data = await fetch(randtejina).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/tejina.jpeg', data)
+  res.sendFile(__path +'/tmp/tejina.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/chiho', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const chiho = JSON.parse(fs.readFileSync(__path +'/lib/chiho.json'));
+  const randchiho = chiho[Math.floor(Math.random() * chiho.length)];
+  data = await fetch(randchiho).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/chiho.jpeg', data)
+  res.sendFile(__path +'/tmp/chiho.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/cyberspace', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const cyberspace = JSON.parse(fs.readFileSync(__path +'/lib/CyberSpace.json'));
+  const randcyberspace = cyberspace[Math.floor(Math.random() * cyberspace.length)];
+  data = await fetch(randcyberspace).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/cyberspace.jpeg', data)
+  res.sendFile(__path +'/tmp/cyberspace.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/gaming', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const gaming = JSON.parse(fs.readFileSync(__path +'/lib/GameWallp.json'));
+  const randgaming = gaming[Math.floor(Math.random() * gaming.length)];
+  data = await fetch(randgaming).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/gaming.jpeg', data)
+  res.sendFile(__path +'/tmp/gaming.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/islami', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const islami = JSON.parse(fs.readFileSync(__path +'/lib/Islamic.json'));
+  const randislami = islami[Math.floor(Math.random() * islami.length)];
+  data = await fetch(randislami).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/islami.jpeg', data)
+  res.sendFile(__path +'/tmp/islami.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/programing', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const programing = JSON.parse(fs.readFileSync(__path +'/lib/Programming.json'));
+  const randprograming = programing[Math.floor(Math.random() * programing.length)];
+  data = await fetch(randprograming).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/programing.jpeg', data)
+  res.sendFile(__path +'/tmp/programing.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/teknologi', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const teknologi = JSON.parse(fs.readFileSync(__path +'/lib/Technology.json'));
+  const randteknologi = teknologi[Math.floor(Math.random() * teknologi.length)];
+  data = await fetch(randteknologi).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/teknologi.jpeg', data)
+  res.sendFile(__path +'/tmp/teknologi.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/mountain', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const mountain = JSON.parse(fs.readFileSync(__path +'/lib/Mountain.json'));
+  const randmountain = mountain[Math.floor(Math.random() * mountain.length)];
+  data = await fetch(randmountain).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/mountain.jpeg', data)
+  res.sendFile(__path +'/tmp/mountain.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/tatasurya', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const tatasurya = JSON.parse(fs.readFileSync(__path +'/lib/tatasurya.json'));
+  const randtatasurya = tatasurya[Math.floor(Math.random() * tatasurya.length)];
+  data = await fetch(randtatasurya).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/tatasurya.jpeg', data)
+  res.sendFile(__path +'/tmp/tatasurya.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/kartun', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const kartun = JSON.parse(fs.readFileSync(__path +'/lib/kartun.json'));
+  const randkartun = kartun[Math.floor(Math.random() * kartun.length)];
+  data = await fetch(randkartun).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/kartun.jpeg', data)
+  res.sendFile(__path +'/tmp/kartun.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/pentol', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const pentol = JSON.parse(fs.readFileSync(__path +'/lib/pentol.json'));
+  const randpentol = pentol[Math.floor(Math.random() * pentol.length)];
+  data = await fetch(randpentol).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/pentol.jpeg', data)
+  res.sendFile(__path +'/tmp/pentol.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/katakata', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const katakata = JSON.parse(fs.readFileSync(__path +'/lib/katakata.json'));
+  const randkatakata = katakata[Math.floor(Math.random() * katakata.length)];
+  data = await fetch(randkatakata).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/katakata.jpeg', data)
+  res.sendFile(__path +'/tmp/katakata.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/toukachan', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const toukachan = JSON.parse(fs.readFileSync(__path +'/lib/toukachan.json'));
+  const randtoukachan = toukachan[Math.floor(Math.random() * toukachan.length)];
+  data = await fetch(randtoukachan).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/toukachan.jpeg', data)
+  res.sendFile(__path +'/tmp/toukachan.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/akira', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const akira = JSON.parse(fs.readFileSync(__path +'/lib/akira.json'));
+  const randakira = akira[Math.floor(Math.random() * akira.length)];
+  data = await fetch(randakira).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/akira.jpeg', data)
+  res.sendFile(__path +'/tmp/akira.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/itori', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const itori = JSON.parse(fs.readFileSync(__path +'/lib/itori.json'));
+  const randitori = itori[Math.floor(Math.random() * itori.length)];
+  data = await fetch(randitori).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/itori.jpeg', data)
+  res.sendFile(__path +'/tmp/itori.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/kurumi', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const kurumi = JSON.parse(fs.readFileSync(__path +'/lib/kurumi.json'));
+  const randkurumi = kurumi[Math.floor(Math.random() * kurumi.length)];
+  data = await fetch(randkurumi).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/kurumi.jpeg', data)
+  res.sendFile(__path +'/tmp/kurumi.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/miku', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const miku = JSON.parse(fs.readFileSync(__path +'/lib/miku.json'));
+  const randmiku = miku[Math.floor(Math.random() * miku.length)];
+  data = await fetch(randmiku).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/miku.jpeg', data)
+  res.sendFile(__path +'/tmp/miku.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/pokemon', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const pokemon = JSON.parse(fs.readFileSync(__path +'/lib/pokemon.json'));
+  const randpokemon = pokemon[Math.floor(Math.random() * pokemon.length)];
+  data = await fetch(randpokemon).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/pokemon.jpeg', data)
+  res.sendFile(__path +'/tmp/pokemon.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/ryujin', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const ryujin = JSON.parse(fs.readFileSync(__path +'/lib/ryujin.json'));
+  const randryujin = ryujin[Math.floor(Math.random() * ryujin.length)];
+  data = await fetch(randryujin).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/ryujin.jpeg', data)
+  res.sendFile(__path +'/tmp/ryujin.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/rose', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const rose = JSON.parse(fs.readFileSync(__path +'/lib/rose.json'));
+  const randrose = rose[Math.floor(Math.random() * rose.length)];
+  data = await fetch(randrose).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/rose.jpeg', data)
+  res.sendFile(__path +'/tmp/rose.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/kaori', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const kaori = JSON.parse(fs.readFileSync(__path +'/lib/kaori.json'));
+  const randkaori = kaori[Math.floor(Math.random() * kaori.length)];
+  data = await fetch(randkaori).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/kaori.jpeg', data)
+  res.sendFile(__path +'/tmp/kaori.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/shizuka', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const shizuka = JSON.parse(fs.readFileSync(__path +'/lib/shizuka.json'));
+  const randshizuka = shizuka[Math.floor(Math.random() * shizuka.length)];
+  data = await fetch(randshizuka).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/shizuka.jpeg', data)
+  res.sendFile(__path +'/tmp/shizuka.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/kaga', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const kaga = JSON.parse(fs.readFileSync(__path +'/lib/kaga.json'));
+  const randkaga = kaga[Math.floor(Math.random() * kaga.length)];
+  data = await fetch(randkaga).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/kaga.jpeg', data)
+  res.sendFile(__path +'/tmp/kaga.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/kotori', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const kotori = JSON.parse(fs.readFileSync(__path +'/lib/kotori.json'));
+  const randkotori = kotori[Math.floor(Math.random() * kotori.length)];
+  data = await fetch(randkotori).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/kotori.jpeg', data)
+  res.sendFile(__path +'/tmp/kotori.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/mikasa', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const mikasa = JSON.parse(fs.readFileSync(__path +'/lib/mikasa.json'));
+  const randmikasa = mikasa[Math.floor(Math.random() * mikasa.length)];
+  data = await fetch(randmikasa).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/mikasa.jpeg', data)
+  res.sendFile(__path +'/tmp/mikasa.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/akiyama', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const akiyama = JSON.parse(fs.readFileSync(__path +'/lib/akiyama.json'));
+  const randakiyama = akiyama[Math.floor(Math.random() * akiyama.length)];
+  data = await fetch(randakiyama).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/akiyama.jpeg', data)
+  res.sendFile(__path +'/tmp/akiyama.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/gremory', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const gremory = JSON.parse(fs.readFileSync(__path +'/lib/gremory.json'));
+  const randgremory = gremory[Math.floor(Math.random() * gremory.length)];
+  data = await fetch(randgremory).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/gremory.jpeg', data)
+  res.sendFile(__path +'/tmp/gremory.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/isuzu', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const isuzu = JSON.parse(fs.readFileSync(__path +'/lib/isuzu.json'));
+  const randisuzu = isuzu[Math.floor(Math.random() * isuzu.length)];
+  data = await fetch(randisuzu).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/isuzu.jpeg', data)
+  res.sendFile(__path +'/tmp/isuzu.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/random/cosplay', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const cosplay = JSON.parse(fs.readFileSync(__path +'/lib/cosplay.json'));
+  const randcosplay = cosplay[Math.floor(Math.random() * cosplay.length)];
+  data = await fetch(randcosplay).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/cosplay.jpeg', data)
+  res.sendFile(__path +'/tmp/cosplay.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/shina', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const shina = JSON.parse(fs.readFileSync(__path +'/lib/shina.json'));
+  const randshina = shina[Math.floor(Math.random() * shina.length)];
+  data = await fetch(randshina).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/shina.jpeg', data)
+  res.sendFile(__path +'/tmp/shina.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/kagura', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const kagura = JSON.parse(fs.readFileSync(__path +'/lib/kagura.json'));
+  const randkagura = kagura[Math.floor(Math.random() * kagura.length)];
+  data = await fetch(randkagura).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/kagura.jpeg', data)
+  res.sendFile(__path +'/tmp/kagura.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/shinka', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const shinka = JSON.parse(fs.readFileSync(__path +'/lib/shinka.json'));
+  const randshinka = shinka[Math.floor(Math.random() * shinka.length)];
+  data = await fetch(randshinka).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/shinka.jpeg', data)
+  res.sendFile(__path +'/tmp/shinka.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/eba', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const eba = JSON.parse(fs.readFileSync(__path +'/lib/eba.json'));
+  const randeba = eba[Math.floor(Math.random() * eba.length)];
+  data = await fetch(randeba).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/eba.jpeg', data)
+  res.sendFile(__path +'/tmp/eba.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/deidara', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const Deidara = JSON.parse(fs.readFileSync(__path +'/lib/deidara.json'));
+  const randDeidara = Deidara[Math.floor(Math.random() * Deidara.length)];
+  data = await fetch(randDeidara).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/deidara.jpeg', data)
+  res.sendFile(__path +'/tmp/deidara.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/trans', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const trans = JSON.parse(fs.readFileSync(__path +'/lib/trans.json'));
+  const randtrans = trans[Math.floor(Math.random() * trans.length)];
+  data = await fetch(randtrans).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/trans.jpeg', data)
+  res.sendFile(__path +'/tmp/trans.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/jeni', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const jeni = JSON.parse(fs.readFileSync(__path +'/lib/jeni.json'));
+  const randjeni = jeni[Math.floor(Math.random() * jeni.length)];
+  data = await fetch(randjeni).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/jeni.jpeg', data)
+  res.sendFile(__path +'/tmp/jeni.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/jiso', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const jiso = JSON.parse(fs.readFileSync(__path +'/lib/jiso.json'));
+  const randjiso = jiso[Math.floor(Math.random() * jiso.length)];
+  data = await fetch(randjiso).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/jiso.jpeg', data)
+  res.sendFile(__path +'/tmp/jiso.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/satanic', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const satanic = JSON.parse(fs.readFileSync(__path +'/lib/satanic.json'));
+  const randsatanic = satanic[Math.floor(Math.random() * satanic.length)];
+  data = await fetch(randsatanic).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/satanic.jpeg', data)
+  res.sendFile(__path +'/tmp/satanic.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/cecan2', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const cecan2 = JSON.parse(fs.readFileSync(__path +'/lib/cecan2.json'));
+  const randcecan2 = cecan2[Math.floor(Math.random() * cecan2.length)];
+  data = await fetch(randcecan2).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/cecan2.jpeg', data)
+  res.sendFile(__path +'/tmp/cecan2.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/cogan2', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const cogan2 = JSON.parse(fs.readFileSync(__path +'/lib/cogan2.json'));
+  const randcogan2 = cogan2[Math.floor(Math.random() * cogan2.length)];
+  data = await fetch(randcogan2).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/cogan2.jpeg', data)
+  res.sendFile(__path +'/tmp/cogan2.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/itachi', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const Itachi = JSON.parse(fs.readFileSync(__path +'/lib/itachi.json'));
+  const randItachi = Itachi[Math.floor(Math.random() * Itachi.length)];
+  data = await fetch(randItachi).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/ita.jpeg', data)
+  res.sendFile(__path +'/tmp/ita.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/madara', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const Madara = JSON.parse(fs.readFileSync(__path +'/lib/madara.json'));
+  const randMadara = Madara[Math.floor(Math.random() * Madara.length)];
+  data = await fetch(randMadara).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/madara.jpeg', data)
+  res.sendFile(__path +'/tmp/madara.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/yuki', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const Yuki = JSON.parse(fs.readFileSync(__path +'/lib/yuki.json'));
+  const randYuki = Yuki[Math.floor(Math.random() * Yuki.length)];
+  data = await fetch(randYuki).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/yuki.jpeg', data)
+  res.sendFile(__path +'/tmp/yuki.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/asuna', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const asuna = JSON.parse(fs.readFileSync(__path +'/lib/asuna.json'));
+  const randasuna = asuna[Math.floor(Math.random() * asuna.length)];
+  data = await fetch(randasuna).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/asuna.jpeg', data)
+  res.sendFile(__path +'/tmp/asuna.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/ayuzawa', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const ayuzawa = JSON.parse(fs.readFileSync(__path +'/lib/ayuzawa.json'));
+  const randayuzawa = ayuzawa[Math.floor(Math.random() * ayuzawa.length)];
+  data = await fetch(randayuzawa).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/ayuzawa.jpeg', data)
+  res.sendFile(__path +'/tmp/ayuzawa.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/chitoge', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const chitoge = JSON.parse(fs.readFileSync(__path +'/lib/chitoge.json'));
+  const randchitoge = chitoge[Math.floor(Math.random() * chitoge.length)];
+  data = await fetch(randchitoge).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/chitoge.jpeg', data)
+  res.sendFile(__path +'/tmp/chitoge.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/emilia', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const emilia = JSON.parse(fs.readFileSync(__path +'/lib/emilia.json'));
+  const randemilia = emilia[Math.floor(Math.random() * emilia.length)];
+  data = await fetch(randemilia).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/emilia.jpeg', data)
+  res.sendFile(__path +'/tmp/emilia.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/hestia', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const hestia = JSON.parse(fs.readFileSync(__path +'/lib/hestia.json'));
+  const randhestia = hestia[Math.floor(Math.random() * hestia.length)];
+  data = await fetch(randhestia).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/hestia.jpeg', data)
+  res.sendFile(__path +'/tmp/hestia.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/inori', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const inori = JSON.parse(fs.readFileSync(__path +'/lib/inori.json'));
+  const randinori = inori[Math.floor(Math.random() * inori.length)];
+  data = await fetch(randinori).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/inori.jpeg', data)
+  res.sendFile(__path +'/tmp/inori.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/ana', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const ana = JSON.parse(fs.readFileSync(__path +'/lib/ana.json'));
+  const randana = ana[Math.floor(Math.random() * ana.length)];
+  data = await fetch(randana).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/ana.jpeg', data)
+  res.sendFile(__path +'/tmp/ana.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/boruto', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Boruto = JSON.parse(fs.readFileSync(__path +'/lib/boruto.json'));
+  const randBoruto = Boruto[Math.floor(Math.random() * Boruto.length)];
+  data = await fetch(randBoruto).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/bor.jpeg', data)
+  res.sendFile(__path +'/tmp/bor.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/erza', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Erza = JSON.parse(fs.readFileSync(__path +'/lib/erza.json'));
+  const randErza = Erza[Math.floor(Math.random() * Erza.length)];
+  data = await fetch(randErza).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/erza.jpeg', data)
+  res.sendFile(__path +'/tmp/erza.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/kakasih', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const Kakasih = JSON.parse(fs.readFileSync(__path +'/lib/kakasih.json'));
+  const randKakasih = Kakasih[Math.floor(Math.random() * Kakasih.length)];
+  data = await fetch(randKakasih).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/ka.jpeg', data)
+  res.sendFile(__path +'/tmp/ka.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/sagiri', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Sagiri = JSON.parse(fs.readFileSync(__path +'/lib/sagiri.json'));
+  const randSagiri = Sagiri[Math.floor(Math.random() * Sagiri.length)];
+  data = await fetch(randSagiri).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/sagiri.jpeg', data)
+  res.sendFile(__path +'/tmp/sagiri.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/minato', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Minato = JSON.parse(fs.readFileSync(__path +'/lib/minato.json'));
+  const randMinato = Minato[Math.floor(Math.random() * Minato.length)];
+  data = await fetch(randMinato).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/minato.jpeg', data)
+  res.sendFile(__path +'/tmp/minato.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/naruto', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Naruto = JSON.parse(fs.readFileSync(__path +'/lib/naruto.json'));
+  const randNaruto = Naruto[Math.floor(Math.random() * Naruto.length)];
+  data = await fetch(randNaruto).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/naruto.jpeg', data)
+  res.sendFile(__path +'/tmp/naruto.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/nezuko', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Nezuko = JSON.parse(fs.readFileSync(__path +'/lib/nezuko.json'));
+  const randNezuko = Nezuko[Math.floor(Math.random() * Nezuko.length)];
+  data = await fetch(randNezuko).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/nezu.jpeg', data)
+  res.sendFile(__path +'/tmp/nezu.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/onepiece', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Pic = JSON.parse(fs.readFileSync(__path +'/lib/onepiece.json'));
+  const randPic = Pic[Math.floor(Math.random() * Pic.length)];
+  data = await fetch(randPic).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/pic.jpeg', data)
+  res.sendFile(__path +'/tmp/pic.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/rize', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Rize = JSON.parse(fs.readFileSync(__path +'/lib/rize.json'));
+  const randRize = Rize[Math.floor(Math.random() * Rize.length)];
+  data = await fetch(randRize).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/rize.jpeg', data)
+  res.sendFile(__path +'/tmp/rize.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/sakura', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Sakura = JSON.parse(fs.readFileSync(__path +'/lib/sakura.json'));
+  const randSakura = Sakura[Math.floor(Math.random() * Sakura.length)];
+  data = await fetch(randSakura).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/sakura.jpeg', data)
+  res.sendFile(__path +'/tmp/sakura.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/sasuke', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Sasuke = JSON.parse(fs.readFileSync(__path +'/lib/sasuke.json'));
+  const randSasuke = Sasuke[Math.floor(Math.random() * Sasuke.length)];
+  data = await fetch(randSasuke).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/sasuke.jpeg', data)
+  res.sendFile(__path +'/tmp/sasuke.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/tsunade', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Su = JSON.parse(fs.readFileSync(__path +'/lib/tsunade.json'));
+  const randSu = Su[Math.floor(Math.random() * Su.length)];
+  data = await fetch(randSu).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/su.jpeg', data)
+  res.sendFile(__path +'/tmp/su.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/montor', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Mon = JSON.parse(fs.readFileSync(__path +'/lib/montor.json'));
+  const randMon = Mon[Math.floor(Math.random() * Mon.length)];
+  data = await fetch(randMon).then(v => v.buffer());
+  await fs.writeFileSync(__path +'/tmp/montor.jpeg', data)
+  res.sendFile(__path+ '/tmp/montor.jpeg');
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/mobil', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Mob = JSON.parse(fs.readFileSync(__path +'/lib/mobil.json'));
+  const randMob = Mob[Math.floor(Math.random() * Mob.length)];
+  data = await fetch(randMob).then(v => v.buffer());
+  await fs.writeFileSync(__path +'/tmp/mobil.jpeg', data)
+  res.sendFile(__path+ '/tmp/mobil.jpeg');
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/boneka-chucky', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Bon = JSON.parse(fs.readFileSync(__path +'/lib/boneka.json'));
+  const randBon = Bon[Math.floor(Math.random() * Bon.length)];
+  data = await fetch(randBon).then(v => v.buffer());
+  await fs.writeFileSync(__path +'/tmp/chucky.jpeg', data)
+  res.sendFile(__path+ '/tmp/chucky.jpeg');
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/anime', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Wai23 = JSON.parse(fs.readFileSync(__path +'/lib/wallhp2.json'));
+  const randWai23 = Wai23[Math.floor(Math.random() * Wai23.length)];
+  data = await fetch(randWai23).then(v => v.buffer());
+  await fs.writeFileSync(__path +'/tmp/wallhp2.jpeg', data)
+  res.sendFile(__path+ '/tmp/wallhp2.jpeg');
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/random/blackpink', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  Black = JSON.parse(fs.readFileSync(__path +'/lib/blackpink.json'));
+  const randBlack = Black[Math.floor(Math.random() * Black.length)]
+  data = await fetch(randBlack).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/blak.jpeg', data)
+  res.sendFile(__path +'/tmp/blak.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/wallhp', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Wai22 = JSON.parse(fs.readFileSync(__path +'/lib/wallhp.json'));
+  const randWai22 = Wai22[Math.floor(Math.random() * Wai22.length)];
+  data = await fetch(randWai22).then(v => v.buffer());
+  await fs.writeFileSync(__path +'/tmp/wallhp.jpeg', data)
+  res.sendFile(__path+ '/tmp/wallhp.jpeg');
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/waifu2', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Wai2 = JSON.parse(fs.readFileSync(__path +'/lib/waifu2.json'));
+  const randWai2 = Wai2[Math.floor(Math.random() * Wai2.length)];
+  data = await fetch(randWai2).then(v => v.buffer());
+  await fs.writeFileSync(__path +'/tmp/wibu2.jpeg', data)
+  res.sendFile(__path+ '/tmp/wibu2.jpeg');
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/waifu', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  const Wai = JSON.parse(fs.readFileSync(__path +'/lib/waifu.json'));
+  const randWai = Wai[Math.floor(Math.random() * Wai.length)];
+  data = await fetch(randWai).then(v => v.buffer());
+  await fs.writeFileSync(__path +'/tmp/wibu.jpeg', data)
+  res.sendFile(__path+ '/tmp/wibu.jpeg');
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/kpop', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  Kpop = JSON.parse(fs.readFileSync(__path +'/lib/kpop.json'));
+  const randKpop = Kpop[Math.floor(Math.random() * Kpop.length)]
+  data = await fetch(randKpop).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/kpop.jpeg', data)
+  res.sendFile(__path +'/tmp/kpop.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/hekel', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  Hekel = JSON.parse(fs.readFileSync(__path +'/lib/hekel.json'));
+  const randHekel = Hekel[Math.floor(Math.random() * Hekel.length)]
+  data = await fetch(randHekel).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/hek.jpeg', data)
+  res.sendFile(__path +'/tmp/hek.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/kucing', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  Kucing = JSON.parse(fs.readFileSync(__path +'/lib/kucing.json'));
+  const randKucing = Kucing[Math.floor(Math.random() * Kucing.length)]
+  data = await fetch(randKucing).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/kucing.jpeg', data)
+  res.sendFile(__path +'/tmp/kucing.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/pubg', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  Pubg = JSON.parse(fs.readFileSync(__path +'/lib/pubg.json'));
+  const randPubg = Pubg[Math.floor(Math.random() * Pubg.length)]
+  data = await fetch(randPubg).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/pubg.jpeg', data)
+  res.sendFile(__path +'/tmp/pubg.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/ppcouple', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  Pp = JSON.parse(fs.readFileSync(__path +'/lib/profil.json'));
+  const randPp = Pp[Math.floor(Math.random() * Pp.length)]
+  data = await fetch(randPp).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/pp.jpeg', data)
+  res.sendFile(__path +'/tmp/pp.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/anjing', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  Anjing = JSON.parse(fs.readFileSync(__path +'/lib/anjing.json'));
+  const randAnjing = Anjing[Math.floor(Math.random() * Anjing.length)]
+  data = await fetch(randAnjing).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/ajg.jpeg', data)
+  res.sendFile(__path +'/tmp/ajg.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/doraemon', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  Dora = JSON.parse(fs.readFileSync(__path +'/lib/doraemon.json'));
+  const randDora = Dora[Math.floor(Math.random() * Dora.length)]
+  data = await fetch(randDora).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/dora.jpeg', data)
+  res.sendFile(__path +'/tmp/dora.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/cogan', async (req, res)  {
+        const Apikey = req.query.apikey
+            
+	if (apikey === undefined) return res.status(404).send({         status: 404,         message: `Input Parameter apikey`     });     const check = await cekKey(apikey);     if (!check) return res.status(403).send({         status: 403,         message: `apikey ${apikey} not found, please register first!`     });     let limit = await isLimit(apikey);     if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+	
+
+  Cogan = JSON.parse(fs.readFileSync(__path +'/lib/cogan.json'));
+  const randCogan = Cogan[Math.floor(Math.random() * Cogan.length)]
+  data = await fetch(randCogan).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/cogan.jpeg', data)
+  res.sendFile(__path +'/tmp/cogan.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+
+router.get('/wallpaper/elaina', async (req, res)  {
+        const Apikey = req.query.apikey;
+	if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+const Elaina = JSON.parse(fs.readFileSync(__path +'/lib/elaina.json'))
+const randElaina = Elaina[Math.floor(Math.random() * Elaina.length)]
+//tansole.log(randLoli)
+data = await fetch(randElaina).then(v => v.buffer())
+await fs.writeFileSync(__path +'/tmp/elaina.jpeg', data)
+res.sendFile(__path +'/tmp/elaina.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+
+router.get('/wallpaper/loli', async (req, res)  {
+        const Apikey = req.query.apikey;
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+const Loli = JSON.parse(fs.readFileSync(__path +'/lib/loli.json'))
+const randLoli = Loli[Math.floor(Math.random() * Loli.length)]
+//tansole.log(randLoli)
+data = await fetch(randLoli).then(v => v.buffer())
+await fs.writeFileSync(__path +'/tmp/loli.jpeg', data)
+res.sendFile(__path +'/tmp/loli.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+
+router.get('/wallpaper/yuri', async (req, res)  {
+        const Apikey = req.query.apikey;
+	if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+const Yuri = JSON.parse(fs.readFileSync(__path +'/lib/yuri.json'))
+const randYuri = Yuri[Math.floor(Math.random() * Yuri.length)]
+//tansole.log(randTech)
+data = await fetch(randYuri).then(v => v.buffer())
+await fs.writeFileSync(__path +'/tmp/Yuri.jpeg', data)
+res.sendFile(__path +'/tmp/Yuri.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+
+router.get('/wallpaper/cecan', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const cecan = JSON.parse(fs.readFileSync(__path +'/lib/cecan.json'));
+  const randCecan = cecan[Math.floor(Math.random() * cecan.length)];
+  data = await fetch(randCecan).then(v => v.buffer());
+  await fs.writeFileSync(__path +'/tmp/cecan.jpeg', data)
+  res.sendFile(__path +'/tmp/cecan.jpeg');
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+
+router.get('/wallpaper/aesthetic', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const Aesthetic = JSON.parse(fs.readFileSync(__path +'/lib/aesthetic.json'));
+  const randAesthetic = Aesthetic[Math.floor(Math.random() * Aesthetic.length)];
+  data = await fetch(randAesthetic).then(v => v.buffer());
+  await fs.writeFileSync(__path +'/tmp/aesthetic.jpeg', data)
+  res.sendFile(__path +'/tmp/aesthetic.jpeg');
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+
+router.get('/wallpaper/justina', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const Justina = JSON.parse(fs.readFileSync(__path +'/lib/justina.json'));
+  const randJus = Justina[Math.floor(Math.random() * Justina.length)];
+  data = await fetch(randJus).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/justina.jpeg', data)
+  res.sendFile(__path +'/tmp/justina.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+
+router.get('/wallpaper/sagiri', async (req, res)  {
+        if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const Sagiri = JSON.parse(fs.readFileSync(__path +'/lib/sagiri.json'));
+  const randSagiri = Sagiri[Math.floor(Math.random() * Sagiri.length)];
+  data = await fetch(randSagiri).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/sagiri.jpeg', data)
+  res.sendFile(__path +'/tmp/sagiri.jpeg')
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
+router.get('/wallpaper/hinata', async (req, res)  {
+        const Apikey = req.query.apikey
+if (apikey === undefined) return res.status(404).send({
+        status: 404,
+        message: `Input Parameter apikey`
+    });
+    const check = await cekKey(apikey);
+    if (!check) return res.status(403).send({
+        status: 403,
+        message: `apikey ${apikey} not found, please register first!`
+    });
+    let limit = await isLimit(apikey);
+    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
+  const Hinata = JSON.parse(fs.readFileSync(__path +'/lib/hinata.json'));
+  const randHin = Hinata[Math.floor(Math.random() * Hinata.length)];
+  data = await fetch(randHin).then(v => v.buffer());
+  await fs.writeFileSync(__path +'/tmp/Hinata.jpeg', data)
+  res.sendFile(__path+ '/tmp/Hinata.jpeg');
+ catch() {
+res.json({ message: 'Ups, error' })
+}
+})
+
 router.get('/tiktok', tIk);
 
 router.get('/mediafire', mDo);
