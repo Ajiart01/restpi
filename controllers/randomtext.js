@@ -1943,8 +1943,7 @@ async function zettairyouiki(req, res) {
         limitAdd(apikey);
         res.status(200).send({
             status: 200, 
-            soal: result.soal, 
-            jawaban: result.jawaban
+            result: result
         });
     }).catch(error => {
         console.log(error);
