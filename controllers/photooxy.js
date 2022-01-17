@@ -1,7 +1,7 @@
 const request = require("request");
 const cheerio = require("cheerio");
 
-const tema = {
+tema = {
   shadow: "https://photooxy.com/logo-and-text-effects/shadow-text-effect-in-the-sky-394.html",
   romantic: "https://photooxy.com/logo-and-text-effects/romantic-messages-for-your-loved-one-391.html",
   smoke: "https://photooxy.com/other-design/create-an-easy-smoke-type-effect-390.html",
