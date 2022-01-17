@@ -28,7 +28,7 @@ const { mDo } = require('../controllers/media');
 const { tIk } = require('../controllers/tik');
 
 router.get('/checkkey', async (req, res) => {
-    const apikey = req.query.apikey;
+    const apikey = req.query.apikey;;
    if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -43,7 +43,7 @@ router.get('/checkkey', async (req, res) => {
 });
 
 router.get('/merdeka', async(req, res) => {
-  const apikey = req.query.apikey;
+  const apikey = req.query.apikey;;
      if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -64,7 +64,7 @@ router.get('/merdeka', async(req, res) => {
 router.get("/qrcode", (req, res) => {
  const qr = require('qr-image');
  const text = req.query.text;
- const apikey = req.query.apikey;
+ const apikey = req.query.apikey;;
    if (text === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -84,7 +84,7 @@ router.get("/qrcode", (req, res) => {
 */
 
 router.get('/meme', async (req, res) => {
-     const apikey = req.query.apikey;
+     const apikey = req.query.apikey;;
         if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -122,7 +122,7 @@ router.get('/meme', async (req, res) => {
 
 router.get('/photooxy/romantic', async(req, res) => {
   const text = req.query.text;
-	const apikey = req.query.apikey;
+	const apikey = req.query.apikey;;
    if (text === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -141,7 +141,7 @@ router.get('/photooxy/romantic', async(req, res) => {
     
 router.get('/artinama', async(req, res) => {
 	const nama = req.query.nama;
-	const apikey = req.query.apikey;
+	const apikey = req.query.apikey;;
    if (nama === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -166,7 +166,7 @@ router.get('/artinama', async(req, res) => {
 router.get('/ramalanjodoh', async(req, res) => {
 	const nama = req.query.nama;
   const pasangan = req.query.pasangan;
-  const apikey = req.query.apikey;
+  const apikey = req.query.apikey;;
 	   if (nama === undefined || pasangan === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -190,7 +190,7 @@ router.get('/ramalanjodoh', async(req, res) => {
 
 router.get('/pinterest', async (req, res) => {
     const query = req.query.query;
-    const apikey = req.query.apikey;
+    const apikey = req.query.apikey;;
    if (query === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter query & apikey`
@@ -209,7 +209,7 @@ router.get('/pinterest', async (req, res) => {
 
 router.get('/happymod', async(req, res) => {
 	const query = req.query.query;
-const apikey = req.query.apikey;
+const apikey = req.query.apikey;;
 	if (query === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter query & apikey`
@@ -227,7 +227,7 @@ limitAdd(apikey);
 })
 router.get('/sticker', async(req, res) => {
 	const query = req.query.query;
-const apikey = req.query.apikey;
+const apikey = req.query.apikey;;
 	if (query === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter query & apikey`
@@ -246,7 +246,7 @@ let limit = await isLimit(apikey);
 
 router.get('/pindl', async(req, res) => {
 	const link = req.query.link;
-  const apikey = req.query.apikey;
+  const apikey = req.query.apikey;;
    if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -269,7 +269,7 @@ limitAdd(apikey);
 })
 router.get('/scdl', async(req, res) => {
 	const link = req.query.link;
-const apikey = req.query.apikey;
+const apikey = req.query.apikey;;
 	   if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -292,7 +292,7 @@ limitAdd(apikey);
 })
 router.get('/sfiledl', async(req, res) => {
 	const link = req.query.link;
-const apikey = req.query.apikey;
+const apikey = req.query.apikey;;
 	   if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -316,7 +316,7 @@ try {
 
 router.get('/igStory', async(req, res) => {
 		const username = req.query.username;
-  const apikey = req.query.apikey;
+  const apikey = req.query.apikey;;
    if (username === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -339,7 +339,7 @@ limitAdd(apikey);
 })
 router.get('/mediafireDl', async(req, res) => {
 		const link = req.query.link;
-  const apikey = req.query.apikey;
+  const apikey = req.query.apikey;;
    if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -362,7 +362,7 @@ limitAdd(apikey);
 })
 router.get('/zippyShare', async(req, res) => {
 		const link = req.query.link;
-  const apikey = req.query.apikey;
+  const apikey = req.query.apikey;;
    if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -386,7 +386,7 @@ limitAdd(apikey);
 
 router.get('/likeedl', async(req, res) => {
 	const link = req.query.link;
-  const apikey = req.query.apikey;
+  const apikey = req.query.apikey;;
    if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -410,7 +410,7 @@ limitAdd(apikey);
 
 router.get('/stickerpack', async(req, res) => {
 		const link = req.query.link;
-  const apikey = req.query.apikey;
+  const apikey = req.query.apikey;;
    if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -433,7 +433,7 @@ let limit = await isLimit(apikey);
 })
 
 router.get('/wallpaper/keneki', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -451,7 +451,7 @@ if (apikey === undefined) return res.status(404).send({
         res.status(200).send({
             status: 200, 
             result: result
-        });
+        });     
     }).catch(error => {
         console.log(error);
         res.status(500).send({status: 500, message: 'Internal Server Error'});
@@ -459,7 +459,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/megumin', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -485,7 +485,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/yotsuba', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -511,7 +511,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/shinomiya', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -537,7 +537,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/yumeko', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -563,7 +563,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/tejina', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -589,7 +589,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/chiho', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -615,7 +615,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/cyberspace', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -641,7 +641,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/gaming', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -667,7 +667,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/islami', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -693,7 +693,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/programing', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -719,7 +719,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/teknologi', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -745,7 +745,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/mountain', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -771,7 +771,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/tatasurya', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -797,7 +797,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/kartun', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -823,7 +823,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/pentol', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
             
 	if (apikey === undefined) return res.status(404).send({
         status: 404,
@@ -850,7 +850,7 @@ router.get('/wallpaper/pentol', async (req, res) => {
 }
 
 router.get('/wallpaper/katakata', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -876,7 +876,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/toukachan', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -902,7 +902,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/akira', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -928,7 +928,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/itori', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -954,7 +954,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/kurumi', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -980,7 +980,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/miku', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1006,7 +1006,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/pokemon', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1032,7 +1032,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/ryujin', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1058,7 +1058,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/rose', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1084,7 +1084,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/kaori', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1110,7 +1110,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/shizuka', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1136,7 +1136,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/kaga', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1162,7 +1162,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/kotori', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1188,7 +1188,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/mikasa', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1214,7 +1214,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/akiyama', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1240,7 +1240,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/gremory', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1266,7 +1266,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/isuzu', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1292,7 +1292,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/random/cosplay', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1318,7 +1318,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/shina', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1344,7 +1344,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/kagura', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1370,7 +1370,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/shinka', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1396,7 +1396,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/eba', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1422,7 +1422,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/deidara', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1448,7 +1448,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/trans', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1474,7 +1474,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/jeni', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1500,7 +1500,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/jiso', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1526,7 +1526,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/satanic', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1552,7 +1552,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/cecan2', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1578,7 +1578,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/cogan2', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1604,7 +1604,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/itachi', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1630,7 +1630,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/madara', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1656,7 +1656,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/yuki', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1682,7 +1682,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/asuna', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1708,7 +1708,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/ayuzawa', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1734,7 +1734,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/chitoge', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1760,7 +1760,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/emilia', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1786,7 +1786,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/hestia', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1811,7 +1811,7 @@ if (apikey === undefined) return res.status(404).send({
     });
 }
 router.get('/wallpaper/inori', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1837,7 +1837,7 @@ if (apikey === undefined) return res.status(404).send({
 }
 
 router.get('/wallpaper/elaina', async (req, res) => {
-        const apikey = req.query.apikey;
+        const apikey = req.query.apikey;;
 	if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1864,7 +1864,7 @@ readFileJson('/lib/elaina.json'))
 
 
 router.get('/wallpaper/loli', async (req, res) => {
-        const apikey = req.query.apikey;
+        const apikey = req.query.apikey;;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1891,7 +1891,7 @@ readFileJson('/lib/loli.json'))
 
 
 router.get('/wallpaper/yuri', async (req, res) => {
-        const apikey = req.query.apikey;
+        const apikey = req.query.apikey;;
 	if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1918,7 +1918,7 @@ readFileJson('/lib/yuri.json'))
 
 
 router.get('/wallpaper/cecan', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1945,7 +1945,7 @@ if (apikey === undefined) return res.status(404).send({
 
 
 router.get('/wallpaper/aesthetic', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -1972,7 +1972,7 @@ if (apikey === undefined) return res.status(404).send({
 
 
 router.get('/wallpaper/justina', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -2024,7 +2024,7 @@ router.get('/wallpaper/sagiri', async (req, res) => {
 }
 
 router.get('/wallpaper/hinata', async (req, res) => {
-        const apikey = req.query.apikey
+        const apikey = req.query.apikey;
 if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
