@@ -2,9 +2,7 @@ const express = require('express');
 const router = express.Router();
 __path = process.cwd();
 const fs = require('fs');
-const { fetch } = require('node-fetch');
 const { getBuffer } = require('../lib/function');
-const { readFileTxt, readFileJson } = require('../lib/function');
 const { mp4, Mp3 } = require('../lib/youtube');
 const { limitAdd, isLimit } = require('../database/db');
 const { readFileJson } = require('../lib/function');
@@ -431,7 +429,7 @@ let limit = await isLimit(apikey);
 		res.json({ message: 'Ups, error' })
 	}
 })
-
+  
 
 router.get('/tiktok', tIk);
 
