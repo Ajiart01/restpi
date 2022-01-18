@@ -2001,29 +2001,4 @@ async function yotsuba(req, res) {
     });
 }
 
-async function zettairyouiki(req, res) {
-    const apikey = req.query.apikey;
-    if (apikey === undefined) return res.status(404).send({
-        status: 404,
-        message: `Input Parameter apikey`
-    });
-    const check = await cekKey(apikey);
-    if (!check) return res.status(403).send({
-        status: 403,
-        message: `apikey ${apikey} not found, please register first!`
-    });
-    let limit = await isLimit(apikey);
-    if (limit) return res.status(403).send({status: 403, message: 'your limit is 0, reset every morning'});
-    readFileJson('./lib/data/zettaiRyouiki.json').then(result => {
-        limitAdd(apikey);
-        res.status(200).send({
-            status: 200, 
-            result: result
-        });
-    }).catch(error => {
-        console.log(error);
-        res.status(500).send({status: 500, message: 'Internal Server Error'});
-    });
-}
-
 module.exports = {cakLontong, quotes, bijak, fakta, ptl, motivasi, naruto, indonesia, vietnam, thailand, malaysia, korea, japan, china, tiktok, asupan, geayubi, santuy, bocil, rikagusriani, harley, cecan, ukhty, anony, hijaber, joker, tebakchara, tebakjenaka, tebaklirik, tebakbendera, ppcouple, tebakkabupaten, tebakkata, tebakkimia, tebakkalimat, susunkata, tekateki, truth, dare, dadu, tebaktebakan, family100, asahotak, waifu, wallml, shota, loli, aesthetic, milf, cosplay, husbu, nekonime, quotenime, storyanime, ahegao, panties, gangbang, yuri, tentacles, zettairyouiki, thighs, sfwneko, pussy, nsfwneko, orgy, masturbation, manga, jahy, hentai, hentaigift, glasses, foot, femdom, cum, ero, cuckold, blowjob, ass, bdsm };
