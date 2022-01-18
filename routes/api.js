@@ -25,7 +25,7 @@ const { mDo } = require('../controllers/media');
 const { tIk } = require('../controllers/tik');
 
 router.get('/checkkey', async (req, res) {
-    const apikey = req.query.apikey;;
+    const apikey = req.query.apikey;
    if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -40,7 +40,7 @@ router.get('/checkkey', async (req, res) {
 });
 
 router.get('/merdeka', async(req, res) {
-  const apikey = req.query.apikey;;
+  const apikey = req.query.apikey;
      if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
@@ -61,7 +61,7 @@ router.get('/merdeka', async(req, res) {
 router.get("/qrcode", (req, res) {
  const qr = require('qr-image');
  const text = req.query.text;
- const apikey = req.query.apikey;;
+ const apikey = req.query.apikey;
    if (text === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -81,7 +81,7 @@ router.get("/qrcode", (req, res) {
 */
 
 router.get('/meme', async (req, res) {
-     const apikey = req.query.apikey;;
+     const apikey = req.query.apikey;
         if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -119,7 +119,7 @@ router.get('/meme', async (req, res) {
 
 router.get('/photooxy/romantic', async(req, res) {
   const text = req.query.text;
-	const apikey = req.query.apikey;;
+	const apikey = req.query.apikey;
    if (text === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -138,7 +138,7 @@ router.get('/photooxy/romantic', async(req, res) {
     
 router.get('/artinama', async(req, res) {
 	const nama = req.query.nama;
-	const apikey = req.query.apikey;;
+	const apikey = req.query.apikey;
    if (nama === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -163,7 +163,7 @@ router.get('/artinama', async(req, res) {
 router.get('/ramalanjodoh', async(req, res) {
 	const nama = req.query.nama;
   const pasangan = req.query.pasangan;
-  const apikey = req.query.apikey;;
+  const apikey = req.query.apikey;
 	   if (nama === undefined || pasangan === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -187,7 +187,7 @@ router.get('/ramalanjodoh', async(req, res) {
 
 router.get('/pinterest', async (req, res) {
     const query = req.query.query;
-    const apikey = req.query.apikey;;
+    const apikey = req.query.apikey;
    if (query === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter query & apikey`
@@ -206,7 +206,7 @@ router.get('/pinterest', async (req, res) {
 
 router.get('/happymod', async(req, res) {
 	const query = req.query.query;
-const apikey = req.query.apikey;;
+const apikey = req.query.apikey;
 	if (query === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter query & apikey`
@@ -224,7 +224,7 @@ limitAdd(apikey);
 })
 router.get('/sticker', async(req, res) {
 	const query = req.query.query;
-const apikey = req.query.apikey;;
+const apikey = req.query.apikey;
 	if (query === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter query & apikey`
@@ -243,7 +243,7 @@ let limit = await isLimit(apikey);
 
 router.get('/pindl', async(req, res) {
 	const link = req.query.link;
-  const apikey = req.query.apikey;;
+  const apikey = req.query.apikey;
    if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -266,7 +266,7 @@ limitAdd(apikey);
 })
 router.get('/scdl', async(req, res) {
 	const link = req.query.link;
-const apikey = req.query.apikey;;
+const apikey = req.query.apikey;
 	   if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -289,7 +289,7 @@ limitAdd(apikey);
 })
 router.get('/sfiledl', async(req, res) {
 	const link = req.query.link;
-const apikey = req.query.apikey;;
+const apikey = req.query.apikey;
 	   if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -313,7 +313,7 @@ try {
 
 router.get('/igStory', async(req, res) {
 		const username = req.query.username;
-  const apikey = req.query.apikey;;
+  const apikey = req.query.apikey;
    if (username === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -336,7 +336,7 @@ limitAdd(apikey);
 })
 router.get('/mediafireDl', async(req, res) {
 		const link = req.query.link;
-  const apikey = req.query.apikey;;
+  const apikey = req.query.apikey;
    if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -359,7 +359,7 @@ limitAdd(apikey);
 })
 router.get('/zippyShare', async(req, res) {
 		const link = req.query.link;
-  const apikey = req.query.apikey;;
+  const apikey = req.query.apikey;
    if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -383,7 +383,7 @@ limitAdd(apikey);
 
 router.get('/likeedl', async(req, res) {
 	const link = req.query.link;
-  const apikey = req.query.apikey;;
+  const apikey = req.query.apikey;
    if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
@@ -407,7 +407,7 @@ limitAdd(apikey);
 
 router.get('/stickerpack', async(req, res) {
 		const link = req.query.link;
-  const apikey = req.query.apikey;;
+  const apikey = req.query.apikey;
    if (link === undefined || apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter link & apikey`
