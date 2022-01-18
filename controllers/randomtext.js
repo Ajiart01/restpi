@@ -2026,5 +2026,4 @@ async function zettairyouiki(req, res) {
     });
 }
 
-
 module.exports = {cakLontong, quotes, bijak, fakta, ptl, motivasi, naruto, indonesia, vietnam, thailand, malaysia, korea, japan, china, tiktok, asupan, geayubi, santuy, bocil, rikagusriani, harley, cecan, ukhty, anony, hijaber, joker, tebakchara, tebakjenaka, tebaklirik, tebakbendera, ppcouple, tebakkabupaten, tebakkata, tebakkimia, tebakkalimat, susunkata, tekateki, truth, dare, dadu, tebaktebakan, family100, asahotak, waifu, wallml, shota, loli, aesthetic, milf, cosplay, husbu, nekonime, quotenime, storyanime, ahegao, panties, gangbang, yuri, tentacles, zettairyouiki, thighs, sfwneko, pussy, nsfwneko, orgy, masturbation, manga, jahy, hentai, hentaigift, glasses, foot, femdom, cum, ero, cuckold, blowjob, ass, bdsm };
