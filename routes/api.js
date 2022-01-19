@@ -41,44 +41,6 @@ router.get('/ptl', ptl);
 
 router.get('/motivasi', motivasi);
 
-router.get('/cecan/indonesia', indonesia);
-
-router.get('/cecan/malaysia', malaysia);
-
-router.get('/cecan/korea', korea);
-
-router.get('/cecan/thailand', thailand);
-
-router.get('/cecan/jepang', japan);
-
-router.get('/cecan/vietnam', vietnam);
-
-router.get('/asupan/tiktok', tiktok);
-
-router.get('/cecan/china', china);
-
-router.get('/naruto', naruto);
-
-router.get('/asupan/gheayubi', geayubi);
-
-router.get('/asupan/santuy', santuy);
-
-router.get('/asupan/bocil', bocil);
-
-router.get('/asupan/rikagusriani', rikagusriani);
-
-router.get('/asupan/ukhty', ukhty);
-
-router.get('/asupan/cecan', cecan);
-
-router.get('/asupan/harley', harley);
-
-router.get('/asupan/hijaber', hijaber);
-
-router.get('/asupan/anony', anony);
-
-router.get('/asupan/joker', joker);
-
 router.get('/igdl', igdownloader);
 
 router.get('/twitter', twitterdownloader);
