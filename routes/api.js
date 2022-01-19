@@ -4,7 +4,7 @@ const { limitAdd, isLimit } = require('../database/db');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
 const { cekKey } = require('../database/db'); 
 const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
-const { cakLontong, bijak, quotes, fakta, ptl, motivasi, indonesia, malaysia, thailand, vietnam, korea, japan, naruto, china, tiktok, asupan, geayubi, ukhty, rikagusriani, anony, hijaber, joker, harley, cecan, santuy, bocil } = require('../controllers/randomtext');
+const { cakLontong, bijak, quotes, fakta, ptl, motivasi } = require('../controllers/randomtext');
 
 
 router.get('/checkkey', async (req, res) => {
