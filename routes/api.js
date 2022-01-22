@@ -1,15 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const { limitAdd, isLimit } = require('../database/db');
+const { readFileTxt, readFileJson } = require('../lib/function');
+const { mp4, Mp3 } = require('../lib/youtube');
 const { cekKey, checkLimit, resetLimit } = require('../database/db'); 
-const { cekKey } = require('../database/db'); 
-const { youtubePlay, youtubeMp4, youtubeMp3, igdownloader, twitterdownloader } = require('../controllers/yt');
+const { youtubePlay, youtubeMp4, youtubeMp3 } = require('../controllers/yt');
 const { cakLontong, bijak, quotes, fakta, ptl, motivasi } = require('../controllers/randomtext');
-
+const { photoOxy } = require('./oxy');
+const { tgContr } = require('../controllers/tebakgambar');
+const { mDo } = require('../controllers/media');
+const { tIk } = require('../controllers/tik');
 
 router.get('/checkkey', async (req, res) => {
     const apikey = req.query.apikey;
-    if (apikey === undefined) return res.status(404).send({
+   if (apikey === undefined) return res.status(404).send({
         status: 404,
         message: `Input Parameter apikey`
     });
@@ -18,10 +21,15 @@ router.get('/checkkey', async (req, res) => {
         status: 403,
         message: `apikey ${apikey} not found, please register first!`
     });
-    res.send({status: 200, apikey: apikey, response: 'Active'});
+    const limit = await checkLimit(apikey);
+    res.send({status: 200, apikey: apikey, limit: limit});
 });
 
+router.get('/tiktok', tIk);
 
+router.get('/mediafire', mDo);
+
+router.get('/tebakgambar', tgContr);
 
 router.get('/ytplay', youtubePlay);
 
@@ -41,8 +49,6 @@ router.get('/ptl', ptl);
 
 router.get('/motivasi', motivasi);
 
-router.get('/igdl', igdownloader);
-
-router.get('/twitter', twitterdownloader);
+router.get('/oxy/:tema', photoOxy);
 
 module.exports = router;
